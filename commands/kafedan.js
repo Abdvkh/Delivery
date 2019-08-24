@@ -12,40 +12,29 @@ CMD*/
 //waits for an answer
 //from the cafes
 lang = Libs.Lang.get();
-keyboard = '';
+mLi = Libs.myLib
 opt = { 
-    purchases: [],
-    amount: [],
-    price: [],
-    basket: function () {
-        if ( !this.msg ){ this.msg =  'Ваш заказ из кафе *Everest Burger*:' };
-        if( !this.sum ){ this.sum = 0 };
-        for (var i = 0; i < this.purchases.length; i++ ){
-        this.msg += '\n*' + this.purchases[i] + '*\n' +
-        '\n' + this.amount[i] + 'x' + this.price[i] +
-        ' = ' + this.amount[i] * this.price[i];
-        this.sum += this.amount[i] * this.price[i];
-        return msg, sum;
-        };
-    }
+  purchases: [],
+  amount: [],
+  price: [],
 };
 
+var arraycontainscafe = (lang.cafe.cafes.indexOf(message) > -1);
+
+if (arraycontainscafe){
 
 if ( message == 'Everest Burger') {
     opt.code = 'eb' 
-    };
+};
 
 User.setProperty( 'curOrder', opt, 'Object' );
 
-types = Object.getOwnPropertyNames( lang.eb.menu );
-for ( var i = 0; i < types.length; i++ ){
-    keyboard += types[i] ;
-    if (i % 2 == 0 ){
-            keyboard += '\n' ;
-        };
-};
+types = Object.getOwnPropertyNames( lang[opt.code]['menu'] );
 
-keyboard += lang.translations.mainmenu ;
+mLi.mKeys(types);
 
-Bot.sendKeyboard( keyboard, lang.eb.text );
+Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
 Bot.runCommand('choice');
+} else {
+  mLi.back(back.cmd, back.txt, back.keys[0]);
+};

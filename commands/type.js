@@ -10,20 +10,21 @@
 CMD*/
 
 lang = Libs.Lang.get();
-trn = lang.translations ;
-array = lang.type.but;
-cmd = array[0].toLowerCase();
+mLi = Libs.myLib;
 back = User.getProperty('back');
-bFunc = Bot.getProperty('backFunction');
 
-if ( message == array[0] ){
+array = lang.type.but;
+cmd = array[0];
+
+mLi.bKeys('type', lang.type.text, back.keys[1]);
+
+if ( message == cmd ){
     Bot.sendKeyboard( lang.cafe.cafes , lang.cafe.choose );
     Bot.runCommand( cmd );
-} else if ( message !== array[0] ){
+} else if ( message !== cmd ){
 
     Bot.sendMessage(lang.in_dev);
 
 } else {
-    bFunc(back.cmd , back.txt, back,keys);
-}
-
+    mLi.back(back.cmd , back.txt, back.keys[0]);
+};

@@ -11,40 +11,22 @@ CMD*/
 
 lang = Libs.Lang.get();
 menu = lang.type.but;
-keyboard = '';
+mLi = Libs.myLib;
 
 number = message ;
 
-if ( Object.keys(request.contact).length > 0 ){
+if ( request['entities'][0]['type'] !== 'phone_number' ){
     number = request.contact.phone_number;
-};
+} ; 
 
 User.setProperty("Number", number, "Number");
-
-back = {
-    cmd: 'number',
-    txt: lang.number,
-    keys: lang.translations.back
-};
-User.setProperty('back',back,'Object');
 
 
 if ( number > 998000000000 && number < 999000000000 ) {
     
-    num = User.getProperty("Number");
+    mLi.mKeys(menu);
     
-    for (var i = 0; i < menu.length;i++){
-        
-        keyboard += menu[i] ;
-        
-        if ( i % 2 == 0 ){
-            keyboard += '\n,';
-        }
-    };
-    
-    keyboard += lang.translations.back + lang.translations.mainmenu ;
-    
-    Bot.sendMessage(lang.success + '\n*' + num + '*');
+    Bot.sendMessage(lang.success + '\n*' + number + '*');
     Bot.sendKeyboard( keyboard, lang.type.text );
     Bot.runCommand('type');
 } else if ( message == lang.translations.back ){
@@ -55,3 +37,4 @@ if ( number > 998000000000 && number < 999000000000 ) {
     Bot.runCommand("number");
 };
 
+mLi.bKeys('number', lang.number, [lang.translations.back, keyboard]);
