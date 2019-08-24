@@ -302,20 +302,6 @@ if ( message == "🇷🇺Русский") {
 
 };
 
-func = {
-    backFunction: function(command,text,keyboards){
-    trn = Libs.Lang.get().translations;
-    if ( message == trn.back){
-    Bot.sendKeyboard( keyboards , text );
-    Bot.runCommand(command);
-    } else if ( message == trn.mainmenu){
-        Bot.runCommand('menu');
-    };
-    }
-}
-
-Bot.setProperty( 'backFuction', func, 'Object');
-
 lang = Libs.Lang.get();
 
 Bot.sendMessage(Libs.Lang.get().hello + user.first_name + "*!");
