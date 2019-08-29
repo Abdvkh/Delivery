@@ -14,14 +14,15 @@ mLi = Libs.myLib;
 back = User.getProperty('back');
 
 array = lang.type.but;
-cmd = array[0];
+exists = array.includes(message);
 
 mLi.bKeys('type', lang.type.text, back.keys[1]);
 
-if ( message == cmd ){
-    Bot.sendKeyboard( lang.cafe.cafes , lang.cafe.choose );
-    Bot.runCommand( cmd );
-} else if ( message !== cmd ){
+if (exists){
+    mLi.mKeys(lang.cafe.cafes);
+    Bot.sendKeyboard( keyboards , lang.cafe.choose );
+    Bot.runCommand('kafedan');
+} else if (!exists && message !== lang.translations.back && message !== lang.translations.mainmenu){
 
     Bot.sendMessage(lang.in_dev);
 
