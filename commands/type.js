@@ -20,7 +20,7 @@ mLi.bKeys('type', lang.type.text, back.keys[1]);
 
 if (exists){
     mLi.mKeys(lang.cafe.cafes);
-    Bot.sendKeyboard( keyboards , lang.cafe.choose );
+    Bot.sendKeyboard( keyboard , lang.cafe.choose );
     Bot.runCommand('kafedan');
 } else if (!exists && message !== lang.translations.back && message !== lang.translations.mainmenu){
 
