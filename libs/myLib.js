@@ -24,7 +24,7 @@ function makeKeyboard(array){
 
     for (var i = 0; i < array.length;i++){
         
-        keyboard += array[i] ;
+        keyboard += array[i] + ',' ;
         
         if ( i % 2 == 0 ){
             keyboard += '\n,';
