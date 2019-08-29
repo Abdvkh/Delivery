@@ -22,9 +22,9 @@ function backKeys(cmd, txt, keys){
 function makeKeyboard(array){
     keyboard = '';
 
-    for (var i = 0; i < array.length;i++){
+    for (var i = 0; i < array.length; i++){
         
-        keyboard += array[i] ;
+        keyboard += array[i] + ',' ;
         
         if ( i % 2 == 0 ){
             keyboard += '\n,';
