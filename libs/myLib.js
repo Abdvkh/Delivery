@@ -31,7 +31,7 @@ function makeKeyboard(array){
         };
     };
     
-    keyboard += lang.translations.back + lang.translations.mainmenu ;
+    keyboard += lang.translations.back + ',' + lang.translations.mainmenu ;
     return keyboard;
 };
 
