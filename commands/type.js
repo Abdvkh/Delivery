@@ -16,8 +16,6 @@ back = User.getProperty('back');
 array = lang.type.but;
 exists = array.includes(message);
 
-mLi.bKeys('type', lang.type.text, back.keys[1]);
-
 if (exists){
     mLi.mKeys(lang.cafe.cafes);
     Bot.sendKeyboard( keyboard , lang.cafe.choose );
@@ -29,3 +27,5 @@ if (exists){
 } else {
     mLi.back(back.cmd , back.txt, back.keys[0]);
 };
+
+mLi.bKeys('type', lang.type.text, back.keys[1]);
