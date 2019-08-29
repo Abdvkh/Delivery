@@ -19,6 +19,7 @@ exists = array.includes(message);
 if (exists){
     mLi.mKeys(lang.cafe.cafes);
     Bot.sendKeyboard( keyboard , lang.cafe.choose );
+    mLi.bKeys('type', lang.type.text, back.keys[1]);
     Bot.runCommand('kafedan');
 } else if (!exists && message !== lang.translations.back && message !== lang.translations.mainmenu){
 
@@ -27,5 +28,3 @@ if (exists){
 } else {
     mLi.back(back.cmd , back.txt, back.keys[0]);
 };
-
-mLi.bKeys('type', lang.type.text, back.keys[1]);
