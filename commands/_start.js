@@ -30,7 +30,7 @@ uzLang = {
     cafe: {
         text: 'Kafedan dostavkaga ho`sh kelibsiz!',
         choose: 'Qaysi kafedan dostavka qilinadi?',
-        cafes: 'Everest Burger'
+        cafes: ['Everest Burger'],
     },
     eb: {
         text: 'Menyudan biror nima tanlab oling:',        
