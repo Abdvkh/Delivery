@@ -283,21 +283,19 @@ ruLang = {
     thanks: 'Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: '
 }
 
-if ( message == "🇷🇺Русский") {
-   
+switch(message){
+  case "🇷🇺Русский":
     Libs.Lang.setup("ru", ruLang);
-    Libs.Lang.user.setLang("ru")
-
-} else if ( message == "🇺🇿O'zbekcha") {
-    
+    Libs.Lang.user.setLang("ru");
+    break;
+  case "🇺🇿O'zbekcha":
     Libs.Lang.setup("uz", uzLang);
-    Libs.Lang.user.setLang("uz")
-    
-} else {
-  
-    Bot.sendMessage('Error')
-
-};
+    Libs.Lang.user.setLang("uz");
+    break;
+  default:
+    Bot.sendMessage("This is not a language to choose. Do it again.");
+    Bot.runCommand('/start');
+}
 
 lang = Libs.Lang.get();
 
