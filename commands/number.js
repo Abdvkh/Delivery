@@ -15,7 +15,7 @@ mLi = Libs.myLib;
 
 number = message ;
 
-if ( request['entities'][0]['type'] !== 'phone_number' || request['entities'][0]['type'] == null ){
+if ( typeof request['entities'][0]['type']['phone_number'] !== 'number' || typeof request['entities'][0]['type'] == null ){
     number = request.contact.phone_number;
 } ; 
 
