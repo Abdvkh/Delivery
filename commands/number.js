@@ -15,22 +15,21 @@ mLi = Libs.myLib;
 
 number = message ;
 
-if ( typeof request['entities'][0]['type']['phone_number'] !== 'number' || typeof request['entities'][0]['type'] == null ){
+if(request['contact'] !== null){
     number = request.contact.phone_number;
 } ; 
 
 User.setProperty("Number", number, "Number");
 
-
-if ( number > 998000000000 && number < 999000000000 ) {
+if ( message == lang.translations.back ){
+    Bot.runCommand('/start');
+} else if ( number > 998000000000 && number < 999000000000 ) {
     
-    mLi.mKeys(menu);
+    keyboard = mLi.mKeys(menu);
     
     Bot.sendMessage(lang.success + '\n*' + number + '*');
     Bot.sendKeyboard( keyboard, lang.type.text );
     Bot.runCommand('type');
-} else if ( message == lang.translations.back ){
-    Bot.runCommand('/start');
 } else {
     Bot.sendMessage(lang.error);
     Bot.sendMessage(lang.number);
