@@ -11,7 +11,7 @@ function backFunction(command,text,keyboards,message){
 };
 
 function backKeys(cmd, txt, keys){
-    back = {
+    let back = {
         cmd: cmd,
         txt: txt,
         keys: keys,
@@ -20,9 +20,9 @@ function backKeys(cmd, txt, keys){
 };
 
 function makeKeyboard(array){
-    keyboard = '';
+    let keyboard = '';
 
-    for (var i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++){
         
         keyboard += array[i] + ',' ;
         
