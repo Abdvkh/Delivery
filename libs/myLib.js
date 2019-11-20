@@ -1,6 +1,6 @@
 let LIB_PREFIX = 'my_lib_';
 
-function backFunction(command,text,keyboards){
+function backFunction(command,text,keyboards,message){
     let trn = Libs.Lang.get().translations;
     if ( message == trn.back){
         Bot.sendKeyboard( keyboards , text );
