@@ -20,7 +20,7 @@ function backKeys(cmd, txt, keys){
 };
 
 function makeKeyboard(array){
-    let keyboard = '';
+    var keyboard = '';
 
     for (let i = 0; i < array.length; i++){
         
