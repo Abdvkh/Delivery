@@ -17,7 +17,7 @@ array = lang.type.but;
 exists = array.includes(message);
 
 if (exists){
-    mLi.mKeys(lang.cafe.cafes);
+    keyboard = mLi.mKeys(lang.cafe.cafes);
     Bot.sendKeyboard( keyboard , lang.cafe.choose );
     mLi.bKeys('type', lang.type.text, back.keys[1]);
     Bot.runCommand('kafedan');
@@ -26,5 +26,5 @@ if (exists){
     Bot.sendMessage(lang.in_dev);
 
 } else {
-    mLi.back(back.cmd , back.txt, back.keys[0]);
+    mLi.back(back.cmd , back.txt, back.keys[0],message);
 };

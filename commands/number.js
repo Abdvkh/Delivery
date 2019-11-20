@@ -21,12 +21,16 @@ if(request['contact'] !== null){
 
 User.setProperty("Number", number, "Number");
 
-if ( message == lang.translations.back ){
+if (message == lang.translations.back){
     Bot.runCommand('/start');
-} else if ( number > 998000000000 && number < 999000000000 ) {
+} else if(message == lang.translations.mainmenu){
+    Bot.runCommand('menu');    
+}else if ( number > 998000000000 && number < 999000000000 ) {
     
     keyboard = mLi.mKeys(menu);
-    
+
+    mLi.bKeys('number', lang.number, [lang.translations.back, keyboard]);
+
     Bot.sendMessage(lang.success + '\n*' + number + '*');
     Bot.sendKeyboard( keyboard, lang.type.text );
     Bot.runCommand('type');
@@ -35,5 +39,3 @@ if ( message == lang.translations.back ){
     Bot.sendMessage(lang.number);
     Bot.runCommand("number");
 };
-
-mLi.bKeys('number', lang.number, [lang.translations.back, keyboard]);
