@@ -167,7 +167,7 @@ ruLang = {
     cafe: {
         text: 'Добро пожаловать в доставку из кафе!',
         choose: 'Выберите кафе, откуда производится доставка.',
-        cafes: 'Everest Burger'
+        cafes: ['Everest Burger'],
     },
     eb: {
         text: 'Выберите продукты из меню:',
