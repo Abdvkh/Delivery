@@ -11,15 +11,17 @@ CMD*/
 
 //waits for an answer
 //from the cafes
-lang = Libs.Lang.get();
-mLi = Libs.myLib
-opt = { 
+var lang = Libs.Lang.get();
+var mLi = Libs.myLib
+var opt = { 
   purchases: [],
   amount: [],
   price: [],
 };
 
-var arraycontainscafe = (lang.cafe.cafes.indexOf(message) > -1);
+var back = User.getProperty("back");
+
+var arraycontainscafe = (lang.cafe.cafes.length > 0);
 
 if (arraycontainscafe){
 
@@ -36,5 +38,5 @@ mLi.mKeys(types);
 Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
 Bot.runCommand('choice');
 } else {
-  mLi.back(back.cmd, back.txt, back.keys[0]);
+  mLi.back(back.cmd, back.txt, back.keys,message);
 };
