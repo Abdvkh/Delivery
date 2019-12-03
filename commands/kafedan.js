@@ -11,32 +11,28 @@ CMD*/
 
 //waits for an answer
 //from the cafes
-var lang = Libs.Lang.get();
-var mLi = Libs.myLib
+lang = Libs.Lang.get();
+var mLi = Libs.myLib;
 var opt = { 
   purchases: [],
   amount: [],
   price: [],
 };
 
-var back = User.getProperty("back");
+if(message == 'Everest Burger'){
+    opt.code = 'eb';
 
-var arraycontainscafe = (lang.cafe.cafes.length > 0);
+    User.setProperty( 'curOrder', opt, 'Object' );
 
-if (arraycontainscafe){
+    types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
+    keyboard = mLi.mKeys(types);
 
-if ( message == 'Everest Burger') {
-    opt.code = 'eb' 
-};
+    mLi.bKeys('kafedan', lang.cafe.choose, keyboard);
 
-User.setProperty( 'curOrder', opt, 'Object' );
-
-types = Object.getOwnPropertyNames( lang[opt.code]['menu'] );
-
-mLi.mKeys(types);
-
-Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
-Bot.runCommand('choice');
+    Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
+    Bot.runCommand('choice'); 
 } else {
+  back = User.getProperty("back");
+
   mLi.back(back.cmd, back.txt, back.keys,message);
 };

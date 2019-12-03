@@ -11,18 +11,23 @@ CMD*/
 
 //choice handler
 lang = Libs.Lang.get();
-keyboard = '';
-opt = User.getProperty('curOrder')
-opt.type = message
-choice = lang[opt.code]['menu'][message];
-types = Object.getOwnPropertyNames( choice );
-User.setProperty('curOrder',opt,'Object');
+mLi = Libs.myLib;
+opt = User.getProperty('curOrder');
+cafesMenu = lang[opt.code]['menu']; 
 
-for (var i = 0; i < types.length; i++){
-    keyboard += types[i] + '\n';
-};
+if(cafesMenu[message] != "undefined"){
+  opt.type = message;
+  choice = cafesMenu[message];
+  types = Object.getOwnPropertyNames(choice);
+  User.setProperty('curOrder',opt,'Object');
 
-keyboard += lang.translations.mainmenu ;
+  keyboard = mLi.mKeys(types);
 
-Bot.sendKeyboard( keyboard , message );
-Bot.runCommand('purchase');
+  Bot.sendKeyboard( keyboard , message );
+  Bot.runCommand('purchase');
+} else {
+  back = User.getProperty('back');
+  keys = back.keys.split(",");
+  mLi.back(back.cmd, back.txt, keys, message);
+}
+
