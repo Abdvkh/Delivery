@@ -27,7 +27,9 @@ if(message == 'Everest Burger'){
     types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
     keyboard = mLi.mKeys(types);
 
-    mLi.bKeys('kafedan', lang.cafe.choose, keyboard);
+    cafesKeys = mLi.mKeys(lang.cafe.cafes);
+
+    mLi.bKeys('kafedan', lang.cafe.choose, cafesKeys);
 
     Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
     Bot.runCommand('choice'); 
