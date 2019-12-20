@@ -10,28 +10,35 @@
 CMD*/
 
 //purchase
-lang = Libs.Lang.get();
-rex = lang.translations;
+lang  = Libs.Lang.get();
+rex   = lang.translations;
 order = User.getProperty('curOrder');
 price = lang[order.code]['menu'][order.type][message];
+mLi   = Libs.myLib;
 
-if ( message == rex.mainmenu ){
-    types = Object.getOwnPropertyNames( lang.eb.menu );
-    
-    for ( var i = 0; i < types.length; i++ ){
-        keyboard += types[i] + '\n' ;
+if (message in lang[order.code]['menu'][order.type]) {
+    keyboard = '';    
+
+    for ( var i = 0; i < 9; i++ ){
+        keyboard +=  (i + 1) + ',' ;
+        if((i+1)%3==0){
+          keyboard += '\n';
+        }
     };
+    
+    keyboard += rex.back + ',' + rex.mainmenu;
 
-    keyboard += lang.translations.mainmenu ;
+    order.purchases.push(message);
+    order.price.push(price);
+    User.setProperty('curOrder', order, 'Object');
 
-    Bot.sendKeyboard( keyboard, lang.eb.text );
-    Bot.runCommand('choice')
+    Bot.sendKeyboard(keyboard, message);
+
+    Bot.runCommand('amount');
+} else {
+    back = User.getProperty("back");
+    mLi.back(back.cmd, back.txt, back.keys, message);
 };
 
-order.purchases.push(message);
-order.price.push(price);
 
-User.setProperty('curOrder', order, 'JSON');
 
-Bot.sendKeyboard( lang.amount + '\n' + rex.back + ',' + rex.mainmenu , message + '\n ' + price );
-Bot.runCommand('amount');

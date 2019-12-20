@@ -13,21 +13,24 @@ CMD*/
 lang = Libs.Lang.get();
 mLi = Libs.myLib;
 opt = User.getProperty('curOrder');
-cafesMenu = lang[opt.code]['menu']; 
+cafesMenu = lang[opt.code]['menu'];
 
-if(cafesMenu[message] != "undefined"){
+if(message in cafesMenu){
   opt.type = message;
   choice = cafesMenu[message];
   types = Object.getOwnPropertyNames(choice);
   User.setProperty('curOrder',opt,'Object');
 
   keyboard = mLi.mKeys(types);
+  
+  types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
+  menu = mLi.mKeys(types);
+
+  mLi.bKeys("choice", lang[opt.code]['text'], menu);
 
   Bot.sendKeyboard( keyboard , message );
   Bot.runCommand('purchase');
-} else {
+}else{
   back = User.getProperty('back');
-  keys = back.keys.split(",");
-  mLi.back(back.cmd, back.txt, keys, message);
+  mLi.back(back.cmd, back.txt, back.keys, message);
 }
-
