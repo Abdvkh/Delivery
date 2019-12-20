@@ -10,26 +10,16 @@
 CMD*/
 
 //amount
-lang = Libs.Lang.get();
-rex = lang.translations;
+lang  = Libs.Lang.get();
+mLi   = Libs.Lang;
 order = User.getProperty('curOrder');
-order.amount.push(message)
 
-if ( message == rex.mainmenu ){
-    choice = lang[order.code]['menu'][message];
-    types = Object.getOwnPropertyNames( choice );
-    
-    for ( var i = 0; i < types.length; i++ ){
-        keyboard += types[i] + '\n' ;
-    };
-
-    keyboard += lang.translations.mainmenu ;
-
-    Bot.sendKeyboard( keyboard, order.type );
-    Bot.runCommand('purchase');
+if (typeof message == 'number'){
+    order.amount.push(message);
+    mLi.rBasket(order);
+    User.setProperty('curOrder', order, 'JSON');
+    Bot.sendMessage(order.msg + order.sum);
+}else{
+    back = User.getProperty('back');
+    mLi.back(back.cmd, back.txt, back.keys, message);
 };
-
-order.basket();
-User.setProperty('curOrder', order, 'JSON');
-
-Bot.sendMessage(msg);
