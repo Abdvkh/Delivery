@@ -10,15 +10,14 @@
 CMD*/
 
 //amount
-lang  = Libs.Lang.get();
 mLi   = Libs.Lang;
 order = User.getProperty('curOrder');
 
-if (typeof message == 'number'){
+if (message > 0){
     order.amount.push(message);
-    mLi.rBasket(order);
-    User.setProperty('curOrder', order, 'JSON');
-    Bot.sendMessage(order.msg + order.sum);
+    order = mLi.rBasket(order);
+    User.setProperty('curOrder', order, 'Object');
+    Bot.sendMessage(order.msg);
 }else{
     back = User.getProperty('back');
     mLi.back(back.cmd, back.txt, back.keys, message);
