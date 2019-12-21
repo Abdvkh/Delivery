@@ -4,12 +4,10 @@
   need_reply: 
   auto_retry_time: 
   folder: 
-  answer: 
+  answer: Start code importing...
   keyboard: 
   aliases: 
 CMD*/
-
-Bot.sendMessage("Start code importing...");
 
 // Bot.exportGit also possible
 Bot.importGit({
