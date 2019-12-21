@@ -38,10 +38,13 @@ function makeKeyboard(array){
 function returnBasket(details) {
     if(!details.hasOwnProperty(msg)){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' };
     if(!details.hasOwnProperty(sum)){ details.sum = 0 };
+    
     for (var i = 0; i < details.purchases.length; i++ ){
         details.msg += '\n*' + details.purchases[i] + '*\n' + '\n' + details.amount[i] + 'x' + details.price[i] + ' = ' + details.amount[i] * details.price[i];
         details.sum += details.amount[i] * details.price[i];
     };
+    
+    return details;
 };
 
 publish({
