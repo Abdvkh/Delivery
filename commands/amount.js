@@ -10,7 +10,7 @@
 CMD*/
 
 //amount
-mLi   = Libs.Lang;
+mLi   = Libs.myLib;
 order = User.getProperty('curOrder');
 
 if (message > 0){
