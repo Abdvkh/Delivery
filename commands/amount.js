@@ -1,16 +1,16 @@
 /*CMD
   command: amount
-  help: 
+  help:
   need_reply: true
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: 
+  auto_retry_time:
+  folder:
+  answer:
+  keyboard:
+  aliases:
 CMD*/
 
 //amount
-mLi   = Libs.Lang;
+mLi   = Libs.myLib;
 order = User.getProperty('curOrder');
 
 if (message > 0){
