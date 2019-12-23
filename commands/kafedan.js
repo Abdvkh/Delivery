@@ -1,22 +1,24 @@
 /*CMD
   command: kafedan
-  help: 
+  help:
   need_reply: true
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: 
+  auto_retry_time:
+  folder:
+  answer:
+  keyboard:
+  aliases:
 CMD*/
 
 //waits for an answer
 //from the cafes
 lang = Libs.Lang.get();
 var mLi = Libs.myLib;
-var opt = { 
+var opt = {
   purchases: [],
   amount: [],
   price: [],
+  msg: undefined,
+  sum: undefined,
 };
 
 if(message == 'Everest Burger'){
@@ -32,7 +34,7 @@ if(message == 'Everest Burger'){
     mLi.bKeys('kafedan', lang.cafe.choose, cafesKeys);
 
     Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
-    Bot.runCommand('choice'); 
+    Bot.runCommand('choice');
 } else {
   back = User.getProperty("back");
 
