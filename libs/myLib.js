@@ -23,27 +23,31 @@ function makeKeyboard(array){
     var keyboard = '';
 
     for (let i = 0; i < array.length; i++){
-        
+
         keyboard += array[i] + ',' ;
-        
+
         if ( i % 2 == 0 ){
             keyboard += '\n,';
         };
     };
-    
+
     keyboard += '\n' + lang.translations.back + ',' + lang.translations.mainmenu ;
     return keyboard;
 };
 
-function returnBasket(details) {
+function returnBasket() {
+    details = User.getProperty('curOrder');
+
     if(!details.hasOwnProperty(msg)){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' };
     if(!details.hasOwnProperty(sum)){ details.sum = 0 };
-    
+
     for (var i = 0; i < details.purchases.length; i++ ){
         details.msg += '\n*' + details.purchases[i] + '*\n' + '\n' + details.amount[i] + 'x' + details.price[i] + ' = ' + details.amount[i] * details.price[i];
         details.sum += details.amount[i] * details.price[i];
     };
-    
+
+    User.setProperty('curOrder', details, 'Object');
+
     return details;
 };
 
@@ -53,4 +57,3 @@ bKeys: backKeys,
 mKeys: makeKeyboard,
 rBasket: returnBasket,
 });
-
