@@ -11,7 +11,7 @@ CMD*/
 
 uzLang = {
     translations: {
-        again: 'Yana biror nima qo\'shmoqchimisiz?',
+        again: "Yana biror nima qo'shmoqchimisiz?",
         agr: 'Xa',
         disagr: 'Yoq',
         basket: 'Savat',
@@ -190,7 +190,7 @@ ruLang = {
                 'Нон кабоб +': 15000,
                 "Гамбургер мини": 9000,
                 'Гамбургер': 12000,
-                'Гамбургер заказной': 15000
+                'Гамбургер заказной': 15000,
                 },
             'Закуски': {
                 'Фри': 6000,
@@ -220,7 +220,7 @@ ruLang = {
                 'Лаваш Куриный':  11000,
                 'Лаваш Куриный с сыром': 13000,
                 'Лаваш Куриный заказной': 14000,
-                'Лаваш Куриный Everest': 19000
+                'Лаваш Куриный Everest': 19000,
                 },
             "Быстрая пища": {
                 'Самса с мясом': 4000,
@@ -252,7 +252,7 @@ ruLang = {
                 'Hydrolife 1.5': 2500,
                 'Hydrolife 1': 2000,
                 'Red Bull': 11000,
-                'Flash': 9000
+                'Flash': 9000,
                 },
             "Коктейли": {
                 'Кофейный': 4000,
@@ -283,28 +283,30 @@ ruLang = {
     location: 'Пожалуста отправьте вашу геолокация, как показано на данном рисунке, или просто напишите адрес куда осуществляется доставка!',
     payment: {
         text: 'Выберите вид оплаты',
-        but: 'Наличка,\nClick,Payme'
+        but: 'Наличка,\nClick,Payme',
     },
     delivery: 'Стоимость доставки - ',//COST MUST BE WRITTEN
-    thanks: 'Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: '
+    thanks: 'Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: ',
 }
+
+lang = Libs.Lang.get();
 
 switch(message){
   case "🇷🇺Русский":
     Libs.Lang.setup("ru", ruLang);
     Libs.Lang.user.setLang("ru");
+    Bot.sendMessage(lang.hello + user.first_name + "*!");
+    Bot.sendKeyboard( lang.translations.back , lang.number );
+    Bot.runCommand("number");
     break;
   case "🇺🇿O'zbekcha":
     Libs.Lang.setup("uz", uzLang);
     Libs.Lang.user.setLang("uz");
+    Bot.sendMessage(lang.hello + user.first_name + "*!");
+    Bot.sendKeyboard( lang.translations.back , lang.number );
+    Bot.runCommand("number");
     break;
   default:
     Bot.sendMessage("This is not a language to choose. Do it again.");
     Bot.runCommand('/start');
 }
-
-lang = Libs.Lang.get();
-
-Bot.sendMessage(Libs.Lang.get().hello + user.first_name + "*!");
-Bot.sendKeyboard( lang.translations.back , Libs.Lang.get().number );
-Bot.runCommand("number");
