@@ -47,8 +47,6 @@ function returnBasket() {
     };
 
     User.setProperty('curOrder', details, 'Object');
-
-    return details;
 };
 
 publish({

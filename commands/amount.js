@@ -15,8 +15,9 @@ order = User.getProperty('curOrder');
 
 if (message > 0){
     order.amount.push(message);
-    order = mLi.rBasket(order);
     User.setProperty('curOrder', order, 'Object');
+    mLi.rBasket();
+    order = User.getProperty('curOrder');
     Bot.sendMessage(order.msg);
 }else{
     back = User.getProperty('back');
