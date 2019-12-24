@@ -10,7 +10,8 @@
 CMD*/
 
 //amount
-lang  = Libs.Lang.get().translations;
+tr    = Libs.Lang.get();
+lang  = tr.translations;
 mLi   = Libs.myLib;
 order = User.getProperty('curOrder');
 
@@ -20,9 +21,11 @@ if (message > 0){
     mLi.rBasket();
 
     order    = User.getProperty('curOrder');
-    keyboard = lang.agr + ',' + lang.disagr + ",\n" + lang.mainmenu;
+    keyboard = lang.agr + ',' + lang.order + ",\n" + lang.mainmenu;
 
-    Bot.sendKeyboard(keyboard, order.msg + lang.again);
+    Bot.sendMessage(order.msg);
+    Bot.sendKeyboard(keyboard,lang.again);
+    Bot.runCommand('answer');
 }else{
     back = User.getProperty('back');
     mLi.back(back.cmd, back.txt, back.keys, message);
