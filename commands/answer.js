@@ -24,7 +24,7 @@ if (message == transl.agr){
   Bot.sendKeyboard(keyboard, lang[opt.code]['text']);
 
 } else if (message == lang.order){
-  keyboard = lang.payment.button + ',' + transl.back + ',' + transl.mainmenu;
+  keyboard = lang.payment.but + ',' + transl.back + ',' + transl.mainmenu;
   mLi.bKeys('answer', lang.payment.text, keyboard);
 
   Bot.sendKeyboard(keyboard, lang.payment.text);
