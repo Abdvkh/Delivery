@@ -21,7 +21,7 @@ if (message > 0){
     mLi.rBasket();
 
     order    = User.getProperty('curOrder');
-    keyboard = lang.agr + ',' + lang.order + ",\n" + lang.mainmenu;
+    keyboard = lang.agr + ',' + tr.order + ",\n" + lang.mainmenu;
 
     Bot.sendMessage(order.msg);
     Bot.sendKeyboard(keyboard,lang.again);
