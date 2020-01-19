@@ -16,6 +16,7 @@ Api.sendMessage({
     reply_markup: {
                     keyboard: [[{
                                 text: 'Location', request_location: true
-                            }]]
+                            }]],
+                    resize_keyboard: true
     }
 });
