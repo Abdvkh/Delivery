@@ -1,5 +1,5 @@
 /*CMD
-  command: suceed
+  command: succeed
   help:
   need_reply:
   auto_retry_time:
