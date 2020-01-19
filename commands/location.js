@@ -11,8 +11,8 @@ CMD*/
 
 Api.sendMessage({
     chat_id: request.chat.id,
+    parse_mode: 'html',
     text: "Send your location",
-    reply_markup: { ReplyKeyboardMarkup: [
-        [{text: 'Location', request_location: true}]
-    ] }
+    reply_markup: { keyboard: [{text: 'Location', request_location: true}],
+    }
 });
