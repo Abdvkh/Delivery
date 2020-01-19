@@ -17,6 +17,7 @@ var opt = {
   purchases: [],
   amount: [],
   price: [],
+  location: [],
   msg: undefined,
   sum: undefined,
 };

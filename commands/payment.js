@@ -17,12 +17,10 @@ switch(message){
   case 'Click':
   case 'Payme':
     order['payment'] = 'Click/Payme';
-    Bot.sendKeyboard(, lang.location);
     Bot.runCommand('location');
     break;
   case 'Naqd' || 'Наличка':
     order['payment'] = 'Naqd/Наличка';
-    Bot.sendKeyboard(, lang.location);
     Bot.runCommand('location');
     break;
   default:
