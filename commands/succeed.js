@@ -15,6 +15,6 @@ order_info = User.getProperty('curOrder');
 
 order_info['location'].push([options.location.longitude, options.location.latitude]);
 
-User.setProperty('curOrder', order_info, 'Object');
+User.setProperty('curOrder', order_info,'Object');
 
 Bot.sendKeyboard(lang.translations.mainmenu, 'You have succed wait for the feedback from the operators');
