@@ -25,6 +25,7 @@ if (message > 0){
 
     Bot.sendMessage(order.msg);
     Bot.sendKeyboard(keyboard,lang.again);
+    mLi.bKeys('amount' , lang.again, keyboard);
     Bot.runCommand('answer');
 }else{
     back = User.getProperty('back');

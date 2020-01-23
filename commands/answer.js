@@ -14,23 +14,25 @@ lang   = Libs.Lang.get();
 transl = lang.translations;
 opt    = User.getProperty('curOrder');
 
-if (message == transl.agr){
-  types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
-  keyboard = mLi.mKeys(types);
-  last_keyboard = lang.agr + ',' + lang.order + ",\n" + lang.mainmenu;
+switch (message) {
+    case transl.agr:
+        types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
+        keyboard = mLi.mKeys(types);
+        last_keyboard = lang.agr + ',' + lang.order + ",\n" + lang.mainmenu;
 
-  mLi.bKeys('answer', lang.again, last_keyboard);
+        mLi.bKeys('answer', lang.again, last_keyboard);
 
-  Bot.sendKeyboard(keyboard, lang[opt.code]['text']);
+        Bot.sendKeyboard(keyboard, lang[opt.code]['text']);
 
-} else if (message == lang.order){
-  keyboard = lang.payment.but + ',' + transl.back + ',' + transl.mainmenu;
-  mLi.bKeys('answer', lang.payment.text, keyboard);
+        break;
+    case lang.order:
+        keyboard = lang.payment.but + ',' + transl.back + ',' + transl.mainmenu;
+        mLi.bKeys('answer', lang.payment.text, keyboard);
 
-  Bot.sendKeyboard(keyboard, lang.payment.text);
-  Bot.runCommand('payment');
+        Bot.sendKeyboard(keyboard, lang.payment.text);
+        Bot.runCommand('payment');
 
-} else if (message == transl.mainmenu){
-  Bot.runCommand('menu');
-
+        break;
+    default:
+        Bot.runCommand('menu');
 }

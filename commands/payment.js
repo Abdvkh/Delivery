@@ -17,11 +17,13 @@ switch(message){
   case 'Click':
   case 'Payme':
     order['payment'] = 'Click/Payme';
+    User.setProperty('curOrder', order, 'Object');
     Bot.runCommand('location');
     break;
   case 'Naqd':
   case 'Наличка':
     order['payment'] = 'Naqd/Наличка';
+    User.setProperty('curOrder', order, 'Object');
     Bot.runCommand('location');
     break;
   default:
