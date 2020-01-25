@@ -13,11 +13,11 @@ let lang = Libs.Lang.get();
 
 Api.sendMessage({
     chat_id: request.chat.id,
-    text: lang.location,
+    text: lang.location.text,
     reply_markup: {
                     keyboard: [
                             [{
-                                text: 'Location', request_location: true
+                                text: lang.location.button, request_location: true
                             }]
                         ],
                     resize_keyboard: true
