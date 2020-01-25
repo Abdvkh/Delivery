@@ -6,12 +6,14 @@
   folder:
   answer:
   keyboard:
-  aliases:
+  aliases: Mening joylashuvim, Моё местоположение
 CMD*/
+
+let lang = Libs.Lang.get();
 
 Api.sendMessage({
     chat_id: request.chat.id,
-    text: "Send your location",
+    text: lang.location,
     reply_markup: {
                     keyboard: [
                             [{

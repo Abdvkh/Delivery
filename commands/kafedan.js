@@ -12,20 +12,13 @@ CMD*/
 //waits for an answer
 //from the cafes
 lang = Libs.Lang.get();
-var mLi = Libs.myLib;
-var opt = {
-  purchases: [],
-  amount: [],
-  price: [],
-  location: [],
-  msg: undefined,
-  sum: undefined,
-};
+mLi = Libs.myLib;
+
+opt = User.getProperty('curOrder');
 
 if(message == 'Everest Burger'){
-    opt.code = 'eb';
 
-    User.setProperty( 'curOrder', opt, 'Object' );
+    opt.code = 'eb';
 
     types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
     keyboard = mLi.mKeys(types);
@@ -34,10 +27,14 @@ if(message == 'Everest Burger'){
 
     mLi.bKeys('kafedan', lang.cafe.choose, cafesKeys);
 
+    User.getProperty('curOrder', opt, 'Object');
     Bot.sendKeyboard( keyboard, lang[opt.code]['text'] );
     Bot.runCommand('choice');
-} else {
-  back = User.getProperty("back");
 
-  mLi.back(back.cmd, back.txt, back.keys,message);
+} else {
+
+    back = User.getProperty("back");
+
+    mLi.back(back.cmd, back.txt, back.keys,message);
+
 };

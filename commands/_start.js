@@ -19,20 +19,22 @@ uzLang = {
         back: 'Ortga',
         mainmenu: 'Asosiy menyu',
         confirm: 'Tasdiqlash',
-        cancel: 'Bekor qilish'
+        cancel: 'Bekor qilish',
+        lang: 'Til'
     },
+    mainmenu_but: ["Buyurtma berish", "Savatni ko'rish", "Mening profilim", "Yordam", "Sozanma"],
     hello: "Assalomu aleykum *" ,
     number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo'ladi! \nMisol: +998901234567",
     error: "Raqamingizni formatga to`g'irlab jo`nating!",
     success: "Raqamingiz muvaffaqiyatli qabul qilindi! Raqam: \n",
     type: {
-        text: 'Qayerdan dostavka qilinadi?',
+        text: 'Qayerdan yetkazib beriladi?',
         but: ['Kafedan','Magazindan','Boshqa joydan'],
     },
     in_dev: 'Rivojlanishda...',
     cafe: {
-        text: 'Kafedan dostavkaga ho`sh kelibsiz!',
-        choose: 'Qaysi kafedan dostavka qilinadi?',
+        text: 'Kafedan yetkazib berish xizmatiga xush kelibsiz!',
+        choose: 'Qaysi kafedan yetkazib beriladi?',
         cafes: ['Everest Burger'],
     },
     eb: {
@@ -141,14 +143,18 @@ uzLang = {
     added: 'Narsangiz savatga solindi!',
     order: 'Buyurtma berish',
     amount: '1,2,3\n, 4,5,6\n, 7,8,9',
-    location: 'Iltimos yetkazib berish manzilini quyidagi rasmda ko`rsatilganidek jo`nating, yoki yozuv shaklida qoldiring!',
+    location: {
+        text:'Iltimos yetkazib berish manzilini quyidagi rasmda ko`rsatilganidek jo`nating, yoki yozuv shaklida qoldiring!',
+        button: 'Mening joylashuvim'
+    },
     payment:{
         text: 'To`lov turini tanglang!',
         but: 'Naqd,\nClick,Payme'
     },
     delivery: 'Yetkazib berish narxi - ',//COST MUST BE WRITTEN
     thanks: 'Rahmat! Sizning buyurtmangiz qabul qilindi! Buyurtmani tasdiqlash uchun operator qo`ng`iroqini kuting. \nBuyurtma raqamingiz: '
-}
+};
+
 ruLang = {
     translations: {
         again: "Еще чего нибудь желаете?",
@@ -159,10 +165,12 @@ ruLang = {
         back: 'Назад',
         mainmenu: 'Главное меню',
         confirm: 'Подтвердить',
-        cancel: 'Отменить'
+        cancel: 'Отменить',
+        lang: 'Язык'
     },
+    mainmenu_but: ["Заказать", "Корзина", "Мой профиль", "Помощь", "Настройки"],
     hello: "Здравствуйте *",
-    number: "Пожалуйстa, наберите ваш номер тлефона, это необходимо для дальнейшей связи с вами! \nПример: +998901234567",
+    number: "Пожалуйстa, наберите ваш номер тлефона, это необходимо для дальнейшей связи с вами! \nПример: `+998901234567`",
     error: "Перепроверьте и отправьте свой номер заново!",
     success: 'Ваш номер был успешно получен! \nНомер: ',
     type: {
@@ -280,31 +288,65 @@ ruLang = {
     added: 'Добавлено в корзину!',
     order: 'Доставить',
     amount: '1,2,3\n, 4,5,6\n, 7,8,9',
-    location: 'Пожалуста отправьте вашу геолокация, как показано на данном рисунке, или просто напишите адрес куда осуществляется доставка!',
+    location: {
+        text: 'Пожалуста отправьте вашу геолокация, как показано на данном рисунке, или просто напишите адрес куда осуществляется доставка!',
+        button: 'Моё местоположение'
+    }
     payment: {
         text: 'Выберите вид оплаты',
         but: 'Наличка,\nClick,Payme',
     },
     delivery: 'Стоимость доставки - ',//COST MUST BE WRITTEN
     thanks: 'Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: ',
-}
+};
 
 lang = Libs.Lang.get();
+tr = lang.translations;
+
+user_info = {
+    user_name: user.first_name,
+    user_id: user.id,
+    user_number: undefined,
+    orders: 0
+};
+
+User.setProperty('user_info', user_info, 'Object');
+
+var opt = {
+    has_things: false,
+    purchases: [],
+    amount: [],
+    price: [],
+    location: [],
+    msg: undefined,
+    sum: undefined,
+};
+
+User.setProperty( 'curOrder', opt, 'Object' );
+
+mainmenu_but = '';
+
+while (i < lang.mainmenu_but.length){
+    mainmenu_but += lang.mainmenu_but[i] + ',';
+    if(i % 2 == 0){
+        mainmenu_but += '\n';
+    }
+}
 
 switch(message){
   case "🇷🇺Русский":
     Libs.Lang.setup("ru", ruLang);
     Libs.Lang.user.setLang("ru");
     Bot.sendMessage(lang.hello + user.first_name + "*!");
-    Bot.sendKeyboard( lang.translations.back , lang.number );
-    Bot.runCommand("number");
+    Bot.sendKeyboard(mainmenu_but , tr.mainmenu);
+    Bot.runCommand("menu");
     break;
   case "🇺🇿O'zbekcha":
     Libs.Lang.setup("uz", uzLang);
     Libs.Lang.user.setLang("uz");
     Bot.sendMessage(lang.hello + user.first_name + "*!");
-    Bot.sendKeyboard( lang.translations.back , lang.number );
-    Bot.runCommand("number");
+    Bot.sendKeyboard(mainmenu_but , tr.mainmenu);
+    Bot.runCommand("menu");
     break;
   default:
     Bot.sendMessage("This is not a language to choose. Do it again.");
