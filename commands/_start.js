@@ -22,7 +22,7 @@ uzLang = {
         cancel: 'Bekor qilish',
         lang: 'Til'
     },
-    mainmenu_but: ["Buyurtma berish", "Savatni ko'rish", "Mening profilim", "Yordam", "Sozanma"],
+    mainmenu_but: ["Buyurtma berish", "Savatni ko'rish", "Mening profilim", "Yordam", "Sozlanma"],
     hello: "Assalomu aleykum *" ,
     number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo'ladi! \nMisol: +998901234567",
     error: "Raqamingizni formatga to`g'irlab jo`nating!",
@@ -332,6 +332,7 @@ while (ind < lang.mainmenu_but.length){
     if(ind % 2 == 0){
         mainmenu_but += '\n';
     }
+    ind += 1;
 }
 
 switch(message){
