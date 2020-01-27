@@ -9,6 +9,27 @@
   aliases:
 CMD*/
 
+let lang = Libs.Lang.get();
+let tr = lang.translations;
+
+let user_info = {
+    user_name: user.first_name,
+    user_id: user.id,
+    user_number: undefined,
+    orders: 0
+};
+let opt = {
+    has_things: false,
+    purchases: [],
+    amount: [],
+    price: [],
+    location: [],
+    msg: undefined,
+    sum: undefined,
+};
+let mainmenu_but = '';
+let ind = 0;
+
 uzLang = {
     translations: {
         again: "Yana biror nima qo'shmoqchimisiz?",
@@ -300,32 +321,15 @@ ruLang = {
     thanks: 'Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: ',
 };
 
-lang = Libs.Lang.get();
-tr = lang.translations;
 
-user_info = {
-    user_name: user.first_name,
-    user_id: user.id,
-    user_number: undefined,
-    orders: 0
-};
 
 User.setProperty('user_info', user_info, 'Object');
 
-var opt = {
-    has_things: false,
-    purchases: [],
-    amount: [],
-    price: [],
-    location: [],
-    msg: undefined,
-    sum: undefined,
-};
+
 
 User.setProperty( 'curOrder', opt, 'Object' );
 
-mainmenu_but = '';
-ind = 0;
+
 
 while (ind < lang.mainmenu_but.length){
     mainmenu_but += lang.mainmenu_but[ind] + ',';
