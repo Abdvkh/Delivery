@@ -321,18 +321,12 @@ ruLang = {
     thanks: 'Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: ',
 };
 
-
-
 User.setProperty('user_info', user_info, 'Object');
-
-
-
 User.setProperty( 'curOrder', opt, 'Object' );
 
 
-
 while (ind < uzLang.mainmenu_but.length || ind < ruLang.mainmenu_but.length){
-    mainmenu_but += lang.mainmenu_but[ind] + ',';
+    mainmenu_but += ruLang.mainmenu_but[ind] + ',';
     if(ind % 2 == 0){
         mainmenu_but += '\n';
     }
