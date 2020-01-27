@@ -331,7 +331,7 @@ User.setProperty( 'curOrder', opt, 'Object' );
 
 
 
-while (ind < lang.mainmenu_but.length){
+while (ind < uzLang.mainmenu_but.length || ind < ruLang.mainmenu_but.length){
     mainmenu_but += lang.mainmenu_but[ind] + ',';
     if(ind % 2 == 0){
         mainmenu_but += '\n';
