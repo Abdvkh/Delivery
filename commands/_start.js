@@ -291,7 +291,7 @@ ruLang = {
     location: {
         text: 'Пожалуста отправьте вашу геолокация, как показано на данном рисунке, или просто напишите адрес куда осуществляется доставка!',
         button: 'Моё местоположение'
-    }
+    },
     payment: {
         text: 'Выберите вид оплаты',
         but: 'Наличка,\nClick,Payme',
@@ -325,10 +325,11 @@ var opt = {
 User.setProperty( 'curOrder', opt, 'Object' );
 
 mainmenu_but = '';
+ind = 0;
 
-while (i < lang.mainmenu_but.length){
-    mainmenu_but += lang.mainmenu_but[i] + ',';
-    if(i % 2 == 0){
+while (ind < lang.mainmenu_but.length){
+    mainmenu_but += lang.mainmenu_but[ind] + ',';
+    if(ind % 2 == 0){
         mainmenu_but += '\n';
     }
 }
