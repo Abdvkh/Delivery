@@ -1,12 +1,12 @@
 /*CMD
   command: *
-  help:
-  need_reply:
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
-  aliases:
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
 CMD*/
 
 if(request.location){

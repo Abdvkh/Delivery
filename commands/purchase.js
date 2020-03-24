@@ -39,6 +39,3 @@ if (message in lang[order.code]['menu'][order.type]) {
     back = User.getProperty("back");
     mLi.back(back.cmd, back.txt, back.keys, message);
 };
-
-
-

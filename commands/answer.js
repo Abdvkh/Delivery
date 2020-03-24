@@ -1,12 +1,12 @@
 /*CMD
   command: answer
-  help:
+  help: 
   need_reply: true
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
-  aliases:
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
 CMD*/
 
 mLi    = Libs.myLib;
