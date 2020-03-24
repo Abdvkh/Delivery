@@ -16,7 +16,7 @@ function backKeys(cmd, txt, keys){
         txt: txt,
         keys: keys,
     };
-    User.setProperty('back',back,'Object');
+    User.setProperty('back', back,'Object');
 };
 
 function makeKeyboard(array){
@@ -56,6 +56,7 @@ function create_organization(details){
   new_org_info.name = details[0];
   new_org_info.password = details[1];
   new_org_info.type = details[2];
+  new_org_info.products = {};
 
   orgs.amount += 1;
 
@@ -65,16 +66,13 @@ function create_organization(details){
 function passwordValid(password){
   let orgs = Bot.getProperty('orgs');
 
-  for(let i=0; i < orgs.amount; i++){}
+  for(let i=0; i < orgs.amount; i++){
     let org_password = orgs.orgs_info[i]['password'];
 
-    if(password==org_password){
-      return true;
-      break;
-    } else {
-      return false;
-    }
+    if(password==org_password)break;
   }
+
+  return i;
 }
 
 publish({

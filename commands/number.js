@@ -1,32 +1,36 @@
 /*CMD
   command: number
-  help: 
+  help:
   need_reply: true
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: 
+  auto_retry_time:
+  folder:
+  answer:
+  keyboard:
+  aliases:
 CMD*/
 
-lang = Libs.Lang.get();
-menu = lang.type.but;
-mLi = Libs.myLib;
+let lang = Libs.Lang.get();
+let menu = lang.type.but;
 
-number = message ;
+let mLi = Libs.myLib;
+
+let user_info = User.getProperty('user_info');
+
+let number = message ;
 
 if(request['contact'] !== null){
     number = request.contact.phone_number;
-} ; 
-
-User.setProperty("Number", number, "Number");
+} ;
 
 if (message == lang.translations.back){
     Bot.runCommand('/start');
 } else if(message == lang.translations.mainmenu){
-    Bot.runCommand('menu');    
+    Bot.runCommand('menu');
 }else if ( number > 998000000000 && number < 999000000000 ) {
-    
+    user_info['user_number'] = number;
+
+    User.setProperty("user_info", user_info, "Object");
+
     keyboard = mLi.mKeys(menu);
 
     mLi.bKeys('number', lang.number, [lang.translations.back, keyboard]);
@@ -35,6 +39,9 @@ if (message == lang.translations.back){
     Bot.sendKeyboard( keyboard, lang.type.text );
     Bot.runCommand('type');
 } else {
+
+    mLi.back('/start', '🇷🇺Выберите язык | 🇺🇿Til tanlang', "🇷🇺Русский, 🇺🇿O'zbekcha", message);
+
     Bot.sendMessage(lang.error);
     Bot.sendMessage(lang.number);
     Bot.runCommand("number");

@@ -12,14 +12,18 @@ CMD*/
 let lang = Libs.Lang.get();
 let tr = lang.translations;
 
+let boss = User.getGroup();
+
 let mLi = Libs.myLib.get();
 
 let orgs = mLi.get_orgs();
+let org_i = mLi.pValid(message);
 
-if(message == '123'){
+if(message == '123' || boss=="Boss"){
   let keys = mLi.mKeys(lang.super_admin.buttons);
+  User.addToGroup('Boss');
   Bot.sendKeyboard(keys, lang.super_admin.text);
-} else if (message in orgs.passwords) {
+} else if (org_i >= 0) {
   let keys = mLi.mKeys(lang.admin.buttons);
   Bot.sendKeyboard(keys, lang.admin.text);
 } else {
