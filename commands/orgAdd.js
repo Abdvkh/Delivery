@@ -9,7 +9,7 @@
   aliases:
 CMD*/
 
-let mLi = Libs.myLib.get();
+let mLi = Libs.myLib;
 let details = message.split('|');
 
 mLi.create_organization(details);

@@ -1,31 +1,30 @@
 /*CMD
   command: choice
-  help: 
+  help:
   need_reply: true
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: 
+  auto_retry_time:
+  folder:
+  answer:
+  keyboard:
+  aliases:
 CMD*/
 
 //choice handler
-lang = Libs.Lang.get();
-mLi = Libs.myLib;
-opt = User.getProperty('curOrder');
-cafesMenu = lang[opt.code]['menu'];
+let lang = Libs.Lang.get();
+let mLi = Libs.myLib;
+let opt = User.getProperty('curOrder');
+let cafesMenu = lang[opt.code]['menu'];
 
 if(message in cafesMenu){
+  let keyboard = mLi.mKeys(types);
+  let choice = cafesMenu[message];
+  // let types = Object.getOwnPropertyNames(choice);
+  let types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
+  let menu = mLi.mKeys(types);
+
   opt.type = message;
-  choice = cafesMenu[message];
-  types = Object.getOwnPropertyNames(choice);
+
   User.setProperty('curOrder',opt,'Object');
-
-  keyboard = mLi.mKeys(types);
-  
-  types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
-  menu = mLi.mKeys(types);
-
   mLi.bKeys("choice", lang[opt.code]['text'], menu);
 
   Bot.sendKeyboard( keyboard , message );

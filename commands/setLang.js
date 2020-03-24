@@ -184,6 +184,7 @@ ruLang = {
     type: {
         text: ' Откуда доставляем?',
         but: ['Кафе','Магазин','Другое'],
+        commands: ['cafe, shop', 'others']
     },
     in_dev: 'В разработке...',
     cafe: {

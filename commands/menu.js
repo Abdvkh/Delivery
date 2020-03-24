@@ -34,11 +34,13 @@ switch (message) {
         Bot.runCommand('number');
         break;
     case lang.mainmenu_but[1]:
-        if (cur_order){
+        if (cur_order.has_things){
             Bot.sendKeyboard(basket_keys, lang.basketlist);
             Bot.runCommand('basket');
-        }
-        break;
+            break;
+        } else {
+          Bot.sendMessage("Basket is empty");
+        };
     case lang.mainmenu_but[2]:
         Bot.runCommand('profile');
         break;

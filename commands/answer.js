@@ -1,18 +1,18 @@
 /*CMD
   command: answer
-  help: 
+  help:
   need_reply: true
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: 
+  auto_retry_time:
+  folder:
+  answer:
+  keyboard:
+  aliases:
 CMD*/
 
-mLi    = Libs.myLib;
-lang   = Libs.Lang.get();
-transl = lang.translations;
-opt    = User.getProperty('curOrder');
+let mLi    = Libs.myLib;
+let lang   = Libs.Lang.get();
+let transl = lang.translations;
+let opt    = User.getProperty('curOrder');
 
 switch (message) {
     case transl.agr:
