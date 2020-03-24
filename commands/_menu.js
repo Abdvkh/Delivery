@@ -14,14 +14,15 @@ let tr = lang.translations;
 
 let mainmenu_but = '';
 let i=0;
+let buts_length=lang.mainmenu_but.length-1;
 
-while (i < lang.mainmenu_but.length){
+while (i < buts_length){
     mainmenu_but += lang.mainmenu_but[i] + ',';
     if(i % 2 == 0){
         mainmenu_but += '\n';
     }
     i += 1;
-}
+};
 
 Bot.sendKeyboard(mainmenu_but, tr.mainmenu);
 Bot.runCommand('menu');
