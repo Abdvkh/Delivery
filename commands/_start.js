@@ -1,12 +1,12 @@
 /*CMD
   command: /start
-  help:
+  help: 
   need_reply: true
-  auto_retry_time:
-  folder:
+  auto_retry_time: 
+  folder: 
   answer: 🇷🇺Выберите язык | 🇺🇿Til tanlang
   keyboard: 🇷🇺Русский, 🇺🇿O'zbekcha
-  aliases:
+  aliases: 
 CMD*/
 
 let lang = Libs.Lang.get();

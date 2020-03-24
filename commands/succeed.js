@@ -1,13 +1,14 @@
 /*CMD
   command: succeed
-  help:
-  need_reply:
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
-  aliases:
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
 CMD*/
+
 lang = Libs.Lang.get();
 let text = "This is your location:\n" + 'longitude: '+ options.location.longitude + '\nlatitude: ' + options.location.latitude
 

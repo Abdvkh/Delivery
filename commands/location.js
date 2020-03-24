@@ -1,12 +1,12 @@
 /*CMD
   command: location
-  help:
-  need_reply:
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
-  aliases: Mening joylashuvim, Моё местоположение
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: mening joylashuvim, моё местоположение
 CMD*/
 
 let lang = Libs.Lang.get();

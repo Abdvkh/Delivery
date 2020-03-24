@@ -1,11 +1,11 @@
 /*CMD
   command: menu
-  help:
+  help: 
   need_reply: true
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
   aliases: asosiy menyu, главное меню, main menu
 CMD*/
 
@@ -18,12 +18,14 @@ basket_keys = tr.clean + ',' + lang.order + '\n,' + tr.mainmenu ;
 basket_msg = lang.basketlist + cur_order.msg;
 
 mainmenu_but = '';
+i=0;
 
 while (i < lang.mainmenu_but.length){
     mainmenu_but += lang.mainmenu_but[i] + ',';
     if(i % 2 == 0){
         mainmenu_but += '\n';
     }
+    i += 1;
 }
 
 switch (message) {
@@ -35,8 +37,8 @@ switch (message) {
         if (cur_order){
             Bot.sendKeyboard(basket_keys, lang.basketlist);
             Bot.runCommand('basket');
-            break;
         }
+        break;
     case lang.mainmenu_but[2]:
         Bot.runCommand('profile');
         break;
