@@ -1,24 +1,24 @@
 /*CMD
   command: menu
-  help: 
+  help:
   need_reply: true
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: asosiy menyu, главное меню, main menu
+  auto_retry_time:
+  folder:
+  answer:
+  keyboard:
+  aliases:
 CMD*/
 
-lang = Libs.Lang.get();
-tr = lang.translations;
+let lang = Libs.Lang.get();
+let tr = lang.translations;
 
-cur_order = User.getProperty('curOrder');
+let cur_order = User.getProperty('curOrder');
 
-basket_keys = tr.clean + ',' + lang.order + '\n,' + tr.mainmenu ;
-basket_msg = lang.basketlist + cur_order.msg;
+let basket_keys = tr.clean + ',' + lang.order + '\n,' + tr.mainmenu ;
+let basket_msg = lang.basketlist + cur_order.msg;
 
-mainmenu_but = '';
-i=0;
+let mainmenu_but = '';
+let i=0;
 
 while (i < lang.mainmenu_but.length){
     mainmenu_but += lang.mainmenu_but[i] + ',';
@@ -49,11 +49,8 @@ switch (message) {
         Bot.sendKeyboard(tr.lang + ',' + tr.mainmenu, lang.mainmenu_but[4])
         Bot.runCommand('settings');
         break;
-    case lang.mainmenu_but[5]:
-        Bot.runCommand('statistics');
-        break;
     default:
-        Bot.sendMessage('Sorry, something went wrong!')
+        Bot.sendMessage('There is no such command')
         Bot.sendKeyboard(mainmenu_but , tr.mainmenu);
         Bot.runCommand('menu');
 }
