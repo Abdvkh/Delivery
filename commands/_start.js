@@ -20,10 +20,13 @@ let user_info = {
 };
 let curOrder = {
     has_things: false,
-    organization: undefined,
+    organization: {
+      name: undefined,
+      type: undefined
+   },
     purchases: [],
     amount: [],
-    price: [],
+    prices: [],
     location: undefined,
     msg: undefined,
     sum: undefined,

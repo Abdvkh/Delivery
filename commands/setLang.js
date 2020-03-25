@@ -9,7 +9,7 @@
   aliases:
 CMD*/
 
-uzLang = {
+let uzLang = {
     translations: {
         again: "Yana biror nima qo\'shmoqchimisiz?",
         agr: "Xa",
@@ -23,10 +23,11 @@ uzLang = {
         lang: "Til"
     },
     choice: "Menyudan biror nima tanlab oling:",
+    choose: "Qaysi biridan yetkazib beriladi?",
     mainmenu_but: ["Buyurtma berish", "Savatni ko\'rish", "Mening profilim", "Yordam", "Sozlanma"],
     hello: "Assalomu aleykum *" ,
     number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo\'ladi! \nMisol: +998901234567",
-    error: "Raqamingizni formatga to\'g\'irlab jo\'nating!",
+    error: "Raqamingizni formatga to\'g`irlab jo\'nating!",
     success: "Raqamingiz muvaffaqiyatli qabul qilindi! Raqam: \n",
     type: {
         text: "Qayerdan yetkazib beriladi?",
@@ -35,7 +36,6 @@ uzLang = {
     in_dev: "Rivojlanishda...",
     cafe: {
         text: "Kafedan yetkazib berish xizmatiga xush kelibsiz!",
-        choose: "Qaysi kafedan yetkazib beriladi?",
         cafes: ["Everest Burger"],
     },
     basketlist: "Savatingizdagi narsalar:\n\n",
@@ -54,19 +54,19 @@ uzLang = {
     thanks: "Rahmat! Sizning buyurtmangiz qabul qilindi! Buyurtmani tasdiqlash uchun operator qo`ng`iroqini kuting. \nBuyurtma raqamingiz: "
 };
 
-ruLang = {
+let ruLang = {
     translations: {
         again: "Еще чего нибудь желаете?",
         agr: "Да",
-        disagr: "Нет",
-        basket: "Корзина",
-        clean: "Очистить",
         back: "Назад",
-        mainmenu: "Главное меню",
-        confirm: "Подтвердить",
+        basket: "Корзина",
         cancel: "Отменить",
+        choice: "Выберите продукты из меню",
+        clean: "Очистить",
+        confirm: "Подтвердить",
+        disagr: "Нет",
         lang: "Язык",
-        choice: "Выберите продукты из меню"
+        mainmenu: "Главное меню",
     },
     super_admin: {
       text: "Добро пожаловать в админку",
@@ -76,6 +76,8 @@ ruLang = {
       text: "Добро пожаловать в админку организации",
       buttons: ["Новые продукты", "Удалить продукт", "Статистика"]
     },
+    choice: "Выберите категорию",
+    choose: "Выберите организацию откуда производится доставка.",
     mainmenu_but: ["Заказать", "Корзина", "Мой профиль", "Помощь", "Настройки"],
     hello: "Здравствуйте *",
     number: "Пожалуйстa, наберите ваш номер тлефона, это необходимо для дальнейшей связи с вами! \nПример: `+998901234567`",
@@ -89,7 +91,6 @@ ruLang = {
     in_dev: "В разработке...",
     cafe: {
         text: "Добро пожаловать в доставку из кафе!",
-        choose: "Выберите кафе, откуда производится доставка.",
         cafes: ["Everest Burger"],
     },
     basketlist: "Корзина:\n\n",

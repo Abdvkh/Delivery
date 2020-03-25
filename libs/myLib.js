@@ -2,10 +2,10 @@ let LIB_PREFIX = 'my_lib_';
 
 function backFunction(command,text,keyboards,message){
     let trn = Libs.Lang.get().translations;
-    if ( message == trn.back){
+    if(message == trn.back){
         Bot.sendKeyboard( keyboards , text );
         Bot.runCommand(command);
-    } else if ( message == trn.mainmenu){
+    } else if(message == trn.mainmenu){
         Bot.runCommand('menu');
     };
 };
@@ -78,34 +78,34 @@ function passwordValid(password){
   return i;
 }
 
-function get_cafes(){
+function get_orgs_by_type(type){
    let orgs = Bot.getProperty('orgs');
    let orgs_amount = orgs.amount;
-   let cafes = [];
+   let type_orgs = [];
 
    for(i=0; i < orgs_amount; i++){
       let org = orgs.orgs_info[i];
       let org_type = org['type'];
 
-      if(org_type=='cafe'){
-         cafe.push(org);
+      if(org_type==type){
+         type_orgs.push(org);
       }
    }
-   return cafes;
+   return type_orgs;
 }
 
-function get_cafe_by_name(name){
-   let cafes = get_cafes();
+function get_org_by_name(name, type){
+   let type_orgs = get_orgs_by_type(type);
 
-   for(i=0; i < cafes.length; i++){
-      let cafe = cafes[i];
-      let c_name = cafe['name'];
+   for(i=0; i < type_orgs.length; i++){
+      let org = type_orgs[i];
+      let org_name = org['name'];
 
-      if(c_name == name){
+      if(org_name == name){
          break;
       }
 
-      return cafe;
+      return org;
    }
 }
 

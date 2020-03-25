@@ -10,23 +10,26 @@
 CMD*/
 
 //amount
-let tr    = Libs.Lang.get();
-let lang  = tr.translations;
+let lang  = Libs.Lang.get();
 let mLi   = Libs.myLib;
-let order = User.getProperty('curOrder');
 
-if (message > 0){
-    order.amount.push(message);
-    User.setProperty('curOrder', order, 'Object');
+let trn   = lang.translations;
+
+let curOrder = User.getProperty('curOrder');
+
+if(message > 0){
+    curOrder.amount.push(message);
+    User.setProperty('curOrder', curOrder, 'Object');
 
     mLi.rBasket();
 
-    let order    = User.getProperty('curOrder');
-    let keyboard = lang.agr + ',' + tr.order + ",\n" + lang.mainmenu;
+    let curOrder    = User.getProperty('curOrder');
+    let keyboard = trn.agr + ',' + lang.order + ",\n" + trn.mainmenu;
 
-    Bot.sendMessage(order.msg);
-    Bot.sendKeyboard(keyboard,lang.again);
-    mLi.bKeys('amount' , lang.again, keyboard);
+    mLi.bKeys('amount' , trn.again, keyboard);
+
+    Bot.sendMessage(curOrder.msg);
+    Bot.sendKeyboard(keyboard,trn.again);
     Bot.runCommand('answer');
 }else{
     let back = User.getProperty('back');
