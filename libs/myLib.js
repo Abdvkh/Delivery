@@ -111,8 +111,8 @@ function get_org_by_name(name, type){
 
 publish({
   cr_org: create_organization,
-  get_cafe_by_name: get_cafe_by_name,
-  get_cafes: get_cafes,
+  get_org_by_name: get_org_by_name,
+  get_orgs_by_type: get_orgs_by_type,
   pValid: passwordValid,
   back: backFunction,
   bKeys: backKeys,
