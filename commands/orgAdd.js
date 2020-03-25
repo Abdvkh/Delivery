@@ -4,7 +4,7 @@
   need_reply: true
   auto_retry_time:
   folder:
-  answer: adding organization format: `name|password|type`
+  answer: adding organization format: `name|password|type|admin's id`
   keyboard: Установить язык, Создать организацию, Статистика
   aliases:
 CMD*/

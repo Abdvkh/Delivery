@@ -12,23 +12,22 @@ CMD*/
 //choice handler
 let lang = Libs.Lang.get();
 let mLi = Libs.myLib;
-let opt = User.getProperty('curOrder');
-let cafesMenu = lang[opt.code]['menu'];
 
-if(message in cafesMenu){
-  let keyboard = mLi.mKeys(types);
-  let choice = cafesMenu[message];
-  // let types = Object.getOwnPropertyNames(choice);
-  let types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
-  let menu = mLi.mKeys(types);
+let curOrder = User.getProperty('curOrder');
 
-  opt.type = message;
+let cafe = mLi.get_cafe_by_name(options.name);
 
-  User.setProperty('curOrder',opt,'Object');
-  mLi.bKeys("choice", lang[opt.code]['text'], menu);
+if(message in options.categories){
+   curOrder['organization'] = options.name;
+   curOrder['purchases'] = message;
+   User.setProperty('curOrder', curOrder,'Object');
 
-  Bot.sendKeyboard( keyboard , message );
-  Bot.runCommand('purchase');
+   mLi.bKeys("choice", lang['choice'], options.categories);
+
+   let items = Object.getOwnPropertyNames(cafe['products'][message]);
+
+   Bot.sendKeyboard( items , message );
+   Bot.runCommand('purchase');
 }else{
   back = User.getProperty('back');
   mLi.back(back.cmd, back.txt, back.keys, message);

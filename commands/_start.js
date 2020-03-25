@@ -18,18 +18,19 @@ let user_info = {
     user_number: undefined,
     orders: 0
 };
-let opt = {
+let curOrder = {
     has_things: false,
+    organization: undefined,
     purchases: [],
     amount: [],
     price: [],
-    location: [],
+    location: undefined,
     msg: undefined,
     sum: undefined,
 };
 
 User.setProperty('user_info', user_info, 'Object');
-User.setProperty( 'curOrder', opt, 'Object' );
+User.setProperty( 'curOrder', curOrder, 'Object' );
 
 switch(message){
   case "🇷🇺Русский":

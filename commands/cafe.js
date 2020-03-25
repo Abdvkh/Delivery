@@ -14,27 +14,39 @@ CMD*/
 let lang = Libs.Lang.get();
 let mLi = Libs.myLib;
 
-cur_order = User.getProperty('curOrder');
+let cafes = mLi.get_cafes();
+let c_length = cafes.length;
 
-if(message == 'Everest Burger'){
+let cur_order = User.getProperty('curOrder');
 
-    cur_order.code = 'eb';
+if(c_length <= 1){
+   Bot.sendMessage('There is no cafes');
+   Bot.runCommand('type');
+}
 
-    types = Object.getOwnPropertyNames(lang[cur_order.code]['menu']);
-    keyboard = mLi.mKeys(types);
+for(let i=0; i < c_length; i++){
+   let cafe = cafes[i];
 
-    cafesKeys = mLi.mKeys(lang.cafe.cafes);
+   if(message == cafe['name']){
+       let types = Object.getOwnPropertyNames(cafe['products']);
+       let keyboard = mLi.mKeys(types);
 
-    mLi.bKeys('kafedan', lang.cafe.choose, cafesKeys);
+       let cafesKeys = mLi.mKeys(cafes);
+       mLi.bKeys('cafe', lang.cafe.choose, cafesKeys);
 
-    User.getProperty('curOrder', cur_order, 'Object');
-    Bot.sendKeyboard( keyboard, lang[cur_order.code]['text'] );
-    Bot.runCommand('choice');
-
-} else {
-
-    back = User.getProperty("back");
-
-    mLi.back(back.cmd, back.txt, back.keys,message);
-
-};
+       User.getProperty('curOrder', cur_order, 'Object');
+       Bot.sendKeyboard(keyboard, lang['choice']);
+       Bot.run({
+          command:'choice',
+          options: {
+             type: 'cafe',
+             name: cafe['name'],
+             categories: keyboard
+          }
+       });
+       break;
+   } else {
+      let back = User.getProperty("back");
+      mLi.back(back.cmd, back.txt, back.keys,message);
+   };
+}

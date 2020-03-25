@@ -56,6 +56,8 @@ function create_organization(details){
   new_org_info.name = details[0];
   new_org_info.password = details[1];
   new_org_info.type = details[2];
+  new_org_info.admin = details[3];
+  new_org_info.orders_recieved = 0;
   new_org_info.products = {};
 
   orgs.amount += 1;
@@ -75,8 +77,41 @@ function passwordValid(password){
   return i;
 }
 
+function get_cafes(){
+   let orgs = Bot.getProperty('orgs');
+   let orgs_amount = orgs.amount;
+   let cafes = [];
+
+   for(i=0; i < orgs_amount; i++){
+      let org = orgs.orgs_info[i];
+      let org_type = org['type'];
+
+      if(org_type=='cafe'){
+         cafe.push(org);
+      }
+   }
+   return cafes;
+}
+
+function get_cafe_by_name(name){
+   let cafes = get_cafes();
+
+   for(i=0; i < cafes.length; i++){
+      let cafe = cafes[i];
+      let c_name = cafe['name'];
+
+      if(c_name == name){
+         break;
+      }
+
+      return cafe;
+   }
+}
+
 publish({
   cr_org: create_organization,
+  get_cafe_by_name: get_cafe_by_name,
+  get_cafes: get_cafes,
   pValid: passwordValid,
   back: backFunction,
   bKeys: backKeys,
