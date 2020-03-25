@@ -109,10 +109,24 @@ function get_org_by_name(name, type){
    }
 }
 
+function get_type_orgs_names(type){
+   let type_orgs = get_orgs_by_type(type);
+   let type_orgs_names = [];
+
+   for(let i=0; i < type_orgs.length){
+      let type_org = type_orgs[i];
+
+      type_orgs_names.push(type_org['name']);
+   }
+
+   return type_orgs_names;
+}
+
 publish({
   cr_org: create_organization,
   get_org_by_name: get_org_by_name,
   get_orgs_by_type: get_orgs_by_type,
+  get_type_orgs_names: get_type_orgs_names,
   pValid: passwordValid,
   back: backFunction,
   bKeys: backKeys,

@@ -11,7 +11,7 @@ CMD*/
 
 let uzLang = {
     translations: {
-        again: "Yana biror nima qo\'shmoqchimisiz?",
+        again: "Yana biror nima qo`shmoqchimisiz?",
         agr: "Xa",
         disagr: "Yoq",
         basket: "Savat",
@@ -24,10 +24,10 @@ let uzLang = {
     },
     choice: "Menyudan biror nima tanlab oling:",
     choose: "Qaysi biridan yetkazib beriladi?",
-    mainmenu_but: ["Buyurtma berish", "Savatni ko\'rish", "Mening profilim", "Yordam", "Sozlanma"],
+    mainmenu_but: ["Buyurtma berish", "Savatni ko`rish", "Mening profilim", "Yordam", "Sozlanma"],
     hello: "Assalomu aleykum *" ,
-    number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo\'ladi! \nMisol: +998901234567",
-    error: "Raqamingizni formatga to\'g`irlab jo\'nating!",
+    number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo'ladi! \nMisol: +998901234567",
+    error: "Raqamingizni formatga to'g'irlab jo'nating!",
     success: "Raqamingiz muvaffaqiyatli qabul qilindi! Raqam: \n",
     type: {
         text: "Qayerdan yetkazib beriladi?",
@@ -51,7 +51,7 @@ let uzLang = {
         but: "Naqd,\nClick,Payme"
     },
     delivery: "Yetkazib berish narxi - ",//COST MUST BE WRITTEN
-    thanks: "Rahmat! Sizning buyurtmangiz qabul qilindi! Buyurtmani tasdiqlash uchun operator qo`ng`iroqini kuting. \nBuyurtma raqamingiz: "
+    thanks: "Rahmat! Sizning buyurtmangiz qabul qilindi! Buyurtmani tasdiqlash uchun operator qo`ng'iroqini kuting. \nBuyurtma raqamingiz: "
 };
 
 let ruLang = {
