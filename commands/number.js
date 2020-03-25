@@ -22,11 +22,7 @@ if(request['contact'] !== null){
     number = request.contact.phone_number;
 } ;
 
-if (message == lang.translations.back){
-    Bot.runCommand('/start');
-} else if(message == lang.translations.mainmenu){
-    Bot.runCommand('menu');
-}else if ( number > 998000000000 && number < 999000000000 ) {
+if ( number > 998000000000 && number < 999000000000 ) {
     user_info['user_number'] = number;
 
     User.setProperty("user_info", user_info, "Object");

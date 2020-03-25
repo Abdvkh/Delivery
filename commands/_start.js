@@ -31,30 +31,15 @@ let opt = {
 User.setProperty('user_info', user_info, 'Object');
 User.setProperty( 'curOrder', opt, 'Object' );
 
-// function buts(){
-//   let mainmenu_but = '';
-//   let ind = 0;
-//   while (ind < lang.mainmenu_but.length ){
-//     mainmenu_but += lang.mainmenu_but[ind] + ',';
-//     if(ind % 2 == 0){
-//         mainmenu_but += '\n';
-//     }
-//     ind += 1;
-//     }
-//     return mainmenu_but
-// }
-
 switch(message){
   case "🇷🇺Русский":
     Libs.Lang.user.setLang("ru");
     Bot.sendMessage(lang.hello + user.first_name + "*!");
-    // Bot.sendKeyboard(buts , tr.mainmenu);
     Bot.runCommand("/menu");
     break;
   case "🇺🇿O'zbekcha":
     Libs.Lang.user.setLang("uz");
     Bot.sendMessage(lang.hello + user.first_name + "*!");
-    // Bot.sendKeyboard(buts , tr.mainmenu);
     Bot.runCommand("/menu");
     break;
   default:

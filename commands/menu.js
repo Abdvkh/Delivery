@@ -37,10 +37,11 @@ switch (message) {
         if (cur_order.has_things){
             Bot.sendKeyboard(basket_keys, lang.basketlist);
             Bot.runCommand('basket');
-            break;
         } else {
           Bot.sendMessage("Basket is empty");
-        };
+          Bot.runCommand('menu');
+        }
+        break;
     case lang.mainmenu_but[2]:
         Bot.runCommand('profile');
         break;

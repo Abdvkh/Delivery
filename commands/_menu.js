@@ -14,7 +14,7 @@ let tr = lang.translations;
 
 let mainmenu_but = '';
 let i=0;
-let buts_length=lang.mainmenu_but.length-1;
+let buts_length=lang.mainmenu_but.length;
 
 while (i < buts_length){
     mainmenu_but += lang.mainmenu_but[i] + ',';

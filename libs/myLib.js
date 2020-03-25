@@ -69,7 +69,7 @@ function passwordValid(password){
   for(let i=0; i < orgs.amount; i++){
     let org_password = orgs.orgs_info[i]['password'];
 
-    if(password==org_password)break;
+    if(password==org_password){break;}
   }
 
   return i;
