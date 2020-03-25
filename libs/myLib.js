@@ -21,6 +21,7 @@ function backKeys(cmd, txt, keys){
 
 function makeKeyboard(array){
     let keyboard = '';
+    let lang = Libs.Lang.get();
 
     for (let i = 1; i <= array.length; i++){
 
