@@ -1,14 +1,15 @@
 let LIB_PREFIX = 'my_lib_';
 
-function backFunction(command,text,keyboards,message){
+function backFunction(command, text, keyboards, message){
     let trn = Libs.Lang.get().translations;
+    
     if(message == trn.back){
-        Bot.sendKeyboard( keyboards , text );
+        Bot.sendKeyboard(keyboards, text);
         Bot.runCommand(command);
     } else if(message == trn.mainmenu){
         Bot.runCommand('menu');
-    };
-};
+    }
+}
 
 function backKeys(cmd, txt, keys){
     let back = {
@@ -17,38 +18,38 @@ function backKeys(cmd, txt, keys){
         keys: keys,
     };
     User.setProperty('back', back,'Object');
-};
+}
 
 function makeKeyboard(array){
     let keyboard = '';
     let lang = Libs.Lang.get();
 
-    for (let i = 1; i <= array.length; i++){
+    for(let i = 1; i <= array.length; i++){
 
         keyboard += array[i-1] + ',' ;
 
         if ( i % 2 == 0 ){
             keyboard += '\n,';
-        };
-    };
+        }
+    }
 
     keyboard += '\n' + lang.translations.back + ',' + lang.translations.mainmenu ;
     return keyboard;
-};
+}
 
-function returnBasket() {
+function returnBasket(){
     let details = User.getProperty('curOrder');
 
-    if(details.msg == undefined){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' };
-    if(details.sum == undefined){ details.sum = 0 };
+    if(details.msg == undefined){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' }
+    if(details.sum == undefined){ details.sum = 0 }
 
     for (var i = 0; i < details.purchases.length; i++ ){
         details.msg += '\n*' + details.purchases[i] + '*\n' + '\n' + details.amount[i] + 'x' + details.price[i] + ' = ' + details.amount[i] * details.price[i];
         details.sum += details.amount[i] * details.price[i];
-    };
+    }
 
     User.setProperty('curOrder', details, 'Object');
-};
+}
 
 function create_organization(details){
   let orgs = Bot.getProperty('orgs');
@@ -64,7 +65,7 @@ function create_organization(details){
   orgs.amount += 1;
 
   Bot.setProperty('orgs', orgs, 'Object');
-};
+}
 
 function passwordValid(password){
   let orgs = Bot.getProperty('orgs');

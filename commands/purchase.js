@@ -31,7 +31,7 @@ if (message in org['products'][categ]) {
      if((i+1)%3==0){
          numbersKeys += '\n';
       }
-   };
+   }
    numbersKeys += trn.back + ',' + trn.mainmenu;
 
     curOrder.purchases.push(message);
@@ -43,4 +43,4 @@ if (message in org['products'][categ]) {
 } else {
     let back = User.getProperty("back");
     mLi.back(back.cmd, back.txt, back.keys, message);
-};
+}

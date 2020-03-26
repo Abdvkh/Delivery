@@ -30,11 +30,9 @@ if(message in options.categories){ //categories is string of keyboards
    Bot.sendKeyboard(items_keys , message);
    Bot.run({
       command:'purchase',
-      options: {
-         categories_keys: options.categories
-      }
+      options: {categories_keys: options.categories}
    });
-}else{
+} else {
   let back = User.getProperty('back');
   mLi.back(back.cmd, back.txt, back.keys, message);
 }

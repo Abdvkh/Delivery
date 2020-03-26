@@ -22,7 +22,7 @@ while (i < buts_length){
         mainmenu_but += '\n';
     }
     i += 1;
-};
+}
 
 Bot.sendKeyboard(mainmenu_but, tr.mainmenu);
 Bot.runCommand('menu');

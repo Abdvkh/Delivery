@@ -20,7 +20,7 @@ let number = message ;
 
 if(request['contact'] !== null){
     number = request.contact.phone_number;
-} ;
+}
 
 if ( number > 998000000000 && number < 999000000000 ) {
     user_info['user_number'] = number;
@@ -41,4 +41,4 @@ if ( number > 998000000000 && number < 999000000000 ) {
     Bot.sendMessage(lang.error);
     Bot.sendMessage(lang.number);
     Bot.runCommand("number");
-};
+}

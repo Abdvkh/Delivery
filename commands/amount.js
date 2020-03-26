@@ -34,4 +34,4 @@ if(message > 0){
 }else{
     let back = User.getProperty('back');
     mLi.back(back.cmd, back.txt, back.keys, message);
-};
+}
