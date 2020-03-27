@@ -79,22 +79,22 @@ function passwordValid(password){
 
   return i;
 }
-//
-// function get_orgs_by_type(type){
-//    let orgs = Bot.getProperty('orgs');
-//    let orgs_amount = orgs.amount;
-//    let type_orgs = [];
-//
-//    for(i=0; i < orgs_amount; i++){
-//       let org = orgs.orgs_info[i];
-//       let org_type = org['type'];
-//
-//       if(org_type==type){
-//          type_orgs.push(org);
-//       }
-//    }
-//    return type_orgs;
-// }
+
+function get_orgs_by_type(type){
+   let orgs = Bot.getProperty('orgs');
+   let orgs_amount = orgs.amount;
+   let type_orgs = [];
+
+   for(i=0; i < orgs_amount; i++){
+      let org = orgs.orgs_info[i];
+      let org_type = org['type'];
+
+      if(org_type==type){
+         type_orgs.push(org);
+      }
+   }
+   return type_orgs;
+}
 //
 // function get_org_by_name(name, type){
 //    let type_orgs = get_orgs_by_type(type);
