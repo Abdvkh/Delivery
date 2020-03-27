@@ -52,21 +52,21 @@ function returnBasket(){
     User.setProperty('curOrder', details, 'Object');
 }
 
-// function create_organization(details){
-//   let orgs = Bot.getProperty('orgs');
-//   let new_org_info = orgs.orgs_info[orgs.amount];
-//
-//   new_org_info.name = details[0];
-//   new_org_info.password = details[1];
-//   new_org_info.type = details[2];
-//   new_org_info.admin = details[3];
-//   new_org_info.orders_recieved = 0;
-//   new_org_info.products = {};
-//
-//   orgs.amount += 1;
-//
-//   Bot.setProperty('orgs', orgs, 'Object');
-// }
+function createOrganization(details){
+  let orgs = Bot.getProperty('orgs');
+  let new_org_info = orgs.orgs_info[orgs.amount];
+
+  new_org_info.name = details[0];
+  new_org_info.password = details[1];
+  new_org_info.type = details[2];
+  new_org_info.admin = details[3];
+  new_org_info.orders_recieved = 0;
+  new_org_info.products = {};
+
+  orgs.amount += 1;
+
+  Bot.setProperty('orgs', orgs, 'Object');
+}
 
 // function passwordValid(password){
 //   let orgs = Bot.getProperty('orgs');
@@ -124,7 +124,7 @@ function returnBasket(){
 // }
 
 publish({
-  // cr_org: create_organization,
+  createOrg: createOrganization,
   // get_org_by_name: get_org_by_name,
   // get_orgs_by_type: get_orgs_by_type,
   // get_type_orgs_names: get_type_orgs_names,
