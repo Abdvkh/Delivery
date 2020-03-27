@@ -5,7 +5,7 @@
   auto_retry_time:
   folder:
   answer:
-  keyboard: Установить язык, Создать организацию, Статистика
+  keyboard: Установить язык, \nСоздать организацию, \nСтатистика, Главное меню
   aliases:
 CMD*/
 
@@ -109,8 +109,12 @@ let ruLang = {
     thanks: "Спасибо! Ваша заявка принята, ждите звонка оператора!\n Номер заказа: ",
 };
 
+let level = User.getGroup();
+
+if(level == "Boss"){
 Libs.Lang.setup("uz", uzLang);
 Libs.Lang.setup("ru", ruLang);
 
 Bot.sendMessage("Languages are successfully set!");
-Bot.runCommand("/admin");
+Bot.runCommand("admin");
+}

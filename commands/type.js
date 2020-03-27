@@ -42,5 +42,5 @@ if (exists){
       mLi.back('type', lang.type.text, back.keys[1], 'Назад');
    }
 } else {
-   mLi.back(back.cmd, back.txt, back.keys[0], message);
+   mLi.back(back.cmd, back.txt, back.keys[0], lang.translations.mainmenu);
 }

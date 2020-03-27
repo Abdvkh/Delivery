@@ -4,14 +4,20 @@
   need_reply: true
   auto_retry_time:
   folder:
-  answer: adding organization format: `name|password|type|admin's id`
-  keyboard: Установить язык, Создать организацию, Статистика
+  answer: adding organization format: `name|password|type|admin's id|categ limit|items per categ limit`
+  keyboard: Установить язык, \nСоздать организацию, \nСтатистика, Главное меню
   aliases:
 CMD*/
 
 let mLi = Libs.myLib;
-let details = message.split('|');
+let level = User.getGroup();
 
-mLi.create_organization(details);
-Bot.sendMessage('Organization successfully created!');
-Bot.runCommand('/admin');
+if (level == "Boss") {
+   let details = message.split('|');
+
+   mLi.createOrg(details);
+   Bot.sendMessage('Organization successfully created!');
+} else {
+   Bot.sendMessage('Operation did not succed');
+}
+Bot.runCommand('admin');

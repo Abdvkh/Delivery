@@ -60,6 +60,8 @@ function createOrganization(details){
   new_org_info.password = details[1];
   new_org_info.type = details[2];
   new_org_info.admin = details[3];
+  new_org_info.limits.categ = details[4];
+  new_org_info.limits.items = details[5];
   new_org_info.orders_recieved = 0;
   new_org_info.products = {};
 
@@ -122,14 +124,37 @@ function get_type_orgs_names(type){
    return type_orgs_names;
 }
 
+function getOrgById(id){
+   let orgs = Bot.getProperty('orgs');
+   if (id < orgs.amoun) {
+      return orgs.orgs_info[id];
+   } else {
+      return 0;
+   }
+}
+
+function productsToObj(productsString) {
+   let productsArr = productsString.split('!');
+   let productsObj = {};
+
+   for(i=1; i<=productsArr.length; i++){
+      if(i%2 == 0){
+         productsJSON[productsArr[i-2]] = JSON.parse(productsArr[i-1]);
+      }
+   }
+   return productsObj;
+}
+
 publish({
+  back: backFunction,
+  bKeys: backKeys,
   createOrg: createOrganization,
   get_org_by_name: get_org_by_name,
   get_orgs_by_type: get_orgs_by_type,
   get_type_orgs_names: get_type_orgs_names,
+  getOrgById: getOrgById,
   pValid: passwordValid,
-  back: backFunction,
-  bKeys: backKeys,
-  mKeys: makeKeyboard,
+  productsToObj: productsObj,
   rBasket: returnBasket,
+  mKeys: makeKeyboard,
 });
