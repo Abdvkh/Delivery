@@ -55,6 +55,7 @@ let uzLang = {
 };
 
 let ruLang = {
+   bots_stat: "Статистика по боту",
     translations: {
         again: "Еще чего нибудь желаете?",
         agr: "Да",
