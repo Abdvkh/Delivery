@@ -54,7 +54,7 @@ switch (message) {
         Bot.runCommand('settings');
         break;
     case '/admin':
-        if(boss == 'Boss'){
+        if(boss == 'Boss' || mLi.isAdmin(user.telegramid)){
            Bot.runCommand('/admin');
            break;
         }

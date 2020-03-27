@@ -145,6 +145,17 @@ function productsToObj(productsString) {
    return productsObj;
 }
 
+function isAdmin(id) {
+   let orgs = Bot.getProperty('orgs');
+
+   for (var i = 0; i < orgs.orgs_info.length; i++) {
+      if (orgs.orgs_info[i]['admin'] == id) {
+         return true;
+      }
+   }
+   return false;
+}
+
 publish({
   back: backFunction,
   bKeys: backKeys,
@@ -153,6 +164,7 @@ publish({
   get_orgs_by_type: get_orgs_by_type,
   get_type_orgs_names: get_type_orgs_names,
   getOrgById: getOrgById,
+  isAdmin: isAdmin,
   pValid: passwordValid,
   productsToObj: productsToObj,
   rBasket: returnBasket,

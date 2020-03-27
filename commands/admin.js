@@ -9,6 +9,7 @@
   aliases:
 CMD*/
 
+let lang = Libs.Lang.get();
 let level = User.getGroup();
 
 if (level=="Boss") {
