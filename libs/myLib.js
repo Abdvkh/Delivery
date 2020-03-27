@@ -54,8 +54,7 @@ function returnBasket(){
 
 function createOrganization(details){
   let orgs = Bot.getProperty('orgs');
-  let new_org_info = {};
-  let new_org_info['limits'] = {};
+  let new_org_info = {limits:{},products:{}};
 
   new_org_info.name = details[0];
   new_org_info.password = details[1];
@@ -64,7 +63,6 @@ function createOrganization(details){
   new_org_info['limits']['categ'] = details[4];
   new_org_info['limits']['items'] = details[5];
   new_org_info.orders_recieved = 0;
-  new_org_info.products = {};
 
   orgs.amount += 1;
 
