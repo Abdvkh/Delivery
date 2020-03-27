@@ -2,7 +2,7 @@ let LIB_PREFIX = 'my_lib_';
 
 function backFunction(command, text, keyboards, message){
     let lang = Libs.Lang.get();
-    let trn =lang.translations;
+    let trn = lang.translations;
 
     if(message == trn.back){
         Bot.sendKeyboard(keyboards, text);
@@ -110,24 +110,23 @@ function get_org_by_name(name, type){
    return org;
 }
 
-// function get_type_orgs_names(type){
-//    let type_orgs = get_orgs_by_type(type);
-//    let type_orgs_names = [];
-//
-//    for(i=0; i < type_orgs.length){
-//       let type_org = type_orgs[i];
-//
-//       type_orgs_names.push(type_org['name']);
-//    }
-//
-//    return type_orgs_names;
-// }
+function get_type_orgs_names(type){
+   let type_orgs = get_orgs_by_type(type);
+   let type_orgs_names = [];
+
+   for(i=0; i < type_orgs.length; i++){
+      let type_org = type_orgs[i];
+
+      type_orgs_names.push(type_org['name']);
+   }
+   return type_orgs_names;
+}
 
 publish({
   createOrg: createOrganization,
   get_org_by_name: get_org_by_name,
   get_orgs_by_type: get_orgs_by_type,
-  // get_type_orgs_names: get_type_orgs_names,
+  get_type_orgs_names: get_type_orgs_names,
   pValid: passwordValid,
   back: backFunction,
   bKeys: backKeys,
