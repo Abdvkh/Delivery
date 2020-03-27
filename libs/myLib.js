@@ -52,83 +52,83 @@ function returnBasket(){
     User.setProperty('curOrder', details, 'Object');
 }
 
-function create_organization(details){
-  let orgs = Bot.getProperty('orgs');
-  let new_org_info = orgs.orgs_info[orgs.amount];
+// function create_organization(details){
+//   let orgs = Bot.getProperty('orgs');
+//   let new_org_info = orgs.orgs_info[orgs.amount];
+//
+//   new_org_info.name = details[0];
+//   new_org_info.password = details[1];
+//   new_org_info.type = details[2];
+//   new_org_info.admin = details[3];
+//   new_org_info.orders_recieved = 0;
+//   new_org_info.products = {};
+//
+//   orgs.amount += 1;
+//
+//   Bot.setProperty('orgs', orgs, 'Object');
+// }
 
-  new_org_info.name = details[0];
-  new_org_info.password = details[1];
-  new_org_info.type = details[2];
-  new_org_info.admin = details[3];
-  new_org_info.orders_recieved = 0;
-  new_org_info.products = {};
-
-  orgs.amount += 1;
-
-  Bot.setProperty('orgs', orgs, 'Object');
-}
-
-function passwordValid(password){
-  let orgs = Bot.getProperty('orgs');
-
-  for(i=0; i < orgs.amount; i++){
-    let org_password = orgs.orgs_info[i]['password'];
-
-    if(password==org_password){break;}
-  }
-
-  return i;
-}
-
-function get_orgs_by_type(type){
-   let orgs = Bot.getProperty('orgs');
-   let orgs_amount = orgs.amount;
-   let type_orgs = [];
-
-   for(i=0; i < orgs_amount; i++){
-      let org = orgs.orgs_info[i];
-      let org_type = org['type'];
-
-      if(org_type==type){
-         type_orgs.push(org);
-      }
-   }
-   return type_orgs;
-}
-
-function get_org_by_name(name, type){
-   let type_orgs = get_orgs_by_type(type);
-
-   for(i=0; i < type_orgs.length; i++){
-      let org = type_orgs[i];
-      let org_name = org['name'];
-
-      if(org_name == name){
-         break;
-      }
-   }
-   return org;
-}
-
-function get_type_orgs_names(type){
-   let type_orgs = get_orgs_by_type(type);
-   let type_orgs_names = [];
-
-   for(let i=0; i < type_orgs.length){
-      let type_org = type_orgs[i];
-
-      type_orgs_names.push(type_org['name']);
-   }
-
-   return type_orgs_names;
-}
+// function passwordValid(password){
+//   let orgs = Bot.getProperty('orgs');
+//
+//   for(i=0; i < orgs.amount; i++){
+//     let org_password = orgs.orgs_info[i]['password'];
+//
+//     if(password==org_password){break;}
+//   }
+//
+//   return i;
+// }
+//
+// function get_orgs_by_type(type){
+//    let orgs = Bot.getProperty('orgs');
+//    let orgs_amount = orgs.amount;
+//    let type_orgs = [];
+//
+//    for(i=0; i < orgs_amount; i++){
+//       let org = orgs.orgs_info[i];
+//       let org_type = org['type'];
+//
+//       if(org_type==type){
+//          type_orgs.push(org);
+//       }
+//    }
+//    return type_orgs;
+// }
+//
+// function get_org_by_name(name, type){
+//    let type_orgs = get_orgs_by_type(type);
+//
+//    for(i=0; i < type_orgs.length; i++){
+//       let org = type_orgs[i];
+//       let org_name = org['name'];
+//
+//       if(org_name == name){
+//          break;
+//       }
+//    }
+//    return org;
+// }
+//
+// function get_type_orgs_names(type){
+//    let type_orgs = get_orgs_by_type(type);
+//    let type_orgs_names = [];
+//
+//    for(let i=0; i < type_orgs.length){
+//       let type_org = type_orgs[i];
+//
+//       type_orgs_names.push(type_org['name']);
+//    }
+//
+//    return type_orgs_names;
+// }
 
 publish({
-  cr_org: create_organization,
-  get_org_by_name: get_org_by_name,
-  get_orgs_by_type: get_orgs_by_type,
-  get_type_orgs_names: get_type_orgs_names,
-  pValid: passwordValid,
+  // cr_org: create_organization,
+  // get_org_by_name: get_org_by_name,
+  // get_orgs_by_type: get_orgs_by_type,
+  // get_type_orgs_names: get_type_orgs_names,
+  // pValid: passwordValid,
   back: backFunction,
   bKeys: backKeys,
   mKeys: makeKeyboard,
