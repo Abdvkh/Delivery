@@ -15,21 +15,21 @@ let tr = lang.translations;
 let user_info = {
     user_name: user.first_name,
     user_id: user.id,
-    user_number: undefined,
+    user_number: 0,
     orders: 0
 };
 let curOrder = {
     has_things: false,
     organization: {
-      name: undefined,
-      type: undefined
+      name: '',
+      type: ''
    },
     purchases: [],
     amount: [],
     prices: [],
-    location: undefined,
-    msg: undefined,
-    sum: undefined,
+    location: '',
+    msg: '',
+    sum: '',
 };
 
 User.setProperty('user_info', user_info, 'Object');

@@ -10,7 +10,7 @@
 CMD*/
 
 let lang = Libs.Lang.get();
-let text = "This is your location:\n" + 'longitude: '+ options.location.longitude + '\nlatitude: ' + options.location.latitude
+let text = "This is your location:\n" + 'longitude: '+ options.location.longitude + '\nlatitude: ' + options.location.latitude;
 
 order_info = User.getProperty('curOrder');
 
