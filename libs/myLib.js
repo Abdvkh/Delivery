@@ -68,17 +68,17 @@ function createOrganization(details){
   Bot.setProperty('orgs', orgs, 'Object');
 }
 
-// function passwordValid(password){
-//   let orgs = Bot.getProperty('orgs');
-//
-//   for(i=0; i < orgs.amount; i++){
-//     let org_password = orgs.orgs_info[i]['password'];
-//
-//     if(password==org_password){break;}
-//   }
-//
-//   return i;
-// }
+function passwordValid(password){
+  let orgs = Bot.getProperty('orgs');
+
+  for(i=0; i < orgs.amount; i++){
+    let org_password = orgs.orgs_info[i]['password'];
+
+    if(password==org_password){break;}
+  }
+
+  return i;
+}
 //
 // function get_orgs_by_type(type){
 //    let orgs = Bot.getProperty('orgs');
