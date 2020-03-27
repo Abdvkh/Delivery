@@ -55,7 +55,7 @@ function returnBasket(){
 function createOrganization(details){
   let orgs = Bot.getProperty('orgs');
   let new_org_info = {};
-  let new_org_info.limits = {}
+  let new_org_info['limits'] = {};
 
   new_org_info.name = details[0];
   new_org_info.password = details[1];
