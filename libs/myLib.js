@@ -95,21 +95,21 @@ function get_orgs_by_type(type){
    }
    return type_orgs;
 }
-//
-// function get_org_by_name(name, type){
-//    let type_orgs = get_orgs_by_type(type);
-//
-//    for(i=0; i < type_orgs.length; i++){
-//       let org = type_orgs[i];
-//       let org_name = org['name'];
-//
-//       if(org_name == name){
-//          break;
-//       }
-//    }
-//    return org;
-// }
-//
+
+function get_org_by_name(name, type){
+   let type_orgs = get_orgs_by_type(type);
+
+   for(i=0; i < type_orgs.length; i++){
+      let org = type_orgs[i];
+      let org_name = org['name'];
+
+      if(org_name == name){
+         break;
+      }
+   }
+   return org;
+}
+
 // function get_type_orgs_names(type){
 //    let type_orgs = get_orgs_by_type(type);
 //    let type_orgs_names = [];
