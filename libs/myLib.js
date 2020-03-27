@@ -1,7 +1,8 @@
 let LIB_PREFIX = 'my_lib_';
 
 function backFunction(command, text, keyboards, message){
-    let trn = Libs.Lang.get().translations;
+    let lang = Libs.Lang.get();
+    let trn =lang.translations;
 
     if(message == trn.back){
         Bot.sendKeyboard(keyboards, text);
@@ -24,11 +25,11 @@ function makeKeyboard(array){
     let keyboard = '';
     let lang = Libs.Lang.get();
 
-    for(let i = 1; i <= array.length; i++){
+    for(i = 1; i <= array.length; i++){
 
         keyboard += array[i-1] + ',' ;
 
-        if ( i % 2 == 0 ){
+        if(i % 2 == 0){
             keyboard += '\n,';
         }
     }
@@ -43,7 +44,7 @@ function returnBasket(){
     if(details.msg == ''){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' }
     if(details.sum == 0){ details.sum = 0 }
 
-    for (var i = 0; i < details.purchases.length; i++ ){
+    for (var i = 0; i < details.purchases.length; i++){
         details.msg += '\n*' + details.purchases[i] + '*\n' + '\n' + details.amount[i] + 'x' + details.price[i] + ' = ' + details.amount[i] * details.price[i];
         details.sum += details.amount[i] * details.price[i];
     }
@@ -70,7 +71,7 @@ function create_organization(details){
 function passwordValid(password){
   let orgs = Bot.getProperty('orgs');
 
-  for(let i=0; i < orgs.amount; i++){
+  for(i=0; i < orgs.amount; i++){
     let org_password = orgs.orgs_info[i]['password'];
 
     if(password==org_password){break;}
@@ -105,9 +106,8 @@ function get_org_by_name(name, type){
       if(org_name == name){
          break;
       }
-
-      return org;
    }
+   return org;
 }
 
 function get_type_orgs_names(type){
