@@ -55,18 +55,19 @@ function returnBasket(){
 function createOrganization(details){
   let orgs = Bot.getProperty('orgs');
   let new_org_info = {};
+  let new_org_info['limits'] = {}
 
   new_org_info.name = details[0];
   new_org_info.password = details[1];
   new_org_info.type = details[2];
   new_org_info.admin = details[3];
-  new_org_info.limits.categ = details[4];
-  new_org_info.limits.items = details[5];
+  new_org_info['limits']['categ'] = details[4];
+  new_org_info['limits']['items'] = details[5];
   new_org_info.orders_recieved = 0;
   new_org_info.products = {};
 
   orgs.amount += 1;
-  
+
   orgs.orgs_info.push(new_org_info);
   Bot.setProperty('orgs', orgs, 'Object');
 }
