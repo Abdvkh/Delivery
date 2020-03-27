@@ -1,4 +1,4 @@
-let LIB_PREFIX = 'lang_lib_'
+let LIB_PREFIX = 'lang_lib_';
 
 function setUserLanguage(curLangName){
   User.setProperty(LIB_PREFIX + 'curLangName', curLangName, 'string');
@@ -6,7 +6,7 @@ function setUserLanguage(curLangName){
 
 function getUserLanguage(){
   let lng = User.getProperty(LIB_PREFIX + 'curLangName');
-  if(lng){ return lng }
+  if(lng){ return lng; }
   return getDefaultLanguage();
 }
 
@@ -21,11 +21,11 @@ function getDefaultLanguage(){
 function setupLanguage(langName, keys){
   Bot.setProperty(LIB_PREFIX + langName, keys, 'json');
   let def = getDefaultLanguage();
-  if(!def){ setDefaultLanguage(langName) }
+  if(!def){ setDefaultLanguage(langName); }
 }
 
 function get(lang){
-  let curLng
+  let curLng;
   if(lang){ curLng = lang }
   else{
     curLng = getUserLanguage();
@@ -35,7 +35,7 @@ function get(lang){
   if(!json){
     throw 'Language is not setup: ' + curLng;
   }
-  return json
+  return json;
 }
 
 publish({
