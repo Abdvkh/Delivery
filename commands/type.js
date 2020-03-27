@@ -23,7 +23,7 @@ if (exists){
     let type_cmd = lang.type.commands[index];
 
     let type_orgs = mLi.get_orgs_by_type(type_cmd);
-    let type_orgs_names = get_type_orgs_names(type_cmd);//array
+    let type_orgs_names = mLi.get_type_orgs_names(type_cmd);//array
 
     if(type_orgs.length > 0){
        let type_orgs_names_keys = mLi.mKeys(type_orgs_names);
@@ -39,7 +39,7 @@ if (exists){
        });
     } else {
       Bot.sendMessage('No ' + message + 'exists');
-      mLi.back(back.cmd, back.txt, back.keys[0], 'Назад');
+      mLi.back('type', lang.type.text, back.keys[1], 'Назад');
    }
 } else {
    mLi.back(back.cmd, back.txt, back.keys[0], message);

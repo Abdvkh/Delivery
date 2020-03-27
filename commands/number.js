@@ -10,11 +10,25 @@
 CMD*/
 
 let lang = Libs.Lang.get();
-let menu = lang.type.but;
+let org_types = lang.type.but;
 
 let mLi = Libs.myLib;
 
 let user_info = User.getProperty('user_info');
+
+let mainmenu_but = '';
+let i=0;
+let buts_length=lang.mainmenu_but.length;
+
+while (i < buts_length){
+    mainmenu_but += lang.mainmenu_but[i] + ',';
+    if(i % 2 == 0){
+        mainmenu_but += '\n';
+    }
+    i += 1;
+}
+
+mLi.back('menu', lang.translations.mainmenu, mainmenu_but', message);
 
 let number = message ;
 
@@ -27,7 +41,7 @@ if ( number > 998000000000 && number < 999000000000 ) {
 
     User.setProperty("user_info", user_info, "Object");
 
-    keyboard = mLi.mKeys(menu);
+    keyboard = mLi.mKeys(org_types);
 
     mLi.bKeys('number', lang.number, [lang.translations.back, keyboard]);
 
@@ -35,9 +49,6 @@ if ( number > 998000000000 && number < 999000000000 ) {
     Bot.sendKeyboard( keyboard, lang.type.text );
     Bot.runCommand('type');
 } else {
-
-    mLi.back('/start', '🇷🇺Выберите язык | 🇺🇿Til tanlang', "🇷🇺Русский, 🇺🇿O'zbekcha", message);
-
     Bot.sendMessage(lang.error);
     Bot.sendMessage(lang.number);
     Bot.runCommand("number");
