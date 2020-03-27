@@ -114,7 +114,7 @@ function get_org_by_name(name, type){
 //    let type_orgs = get_orgs_by_type(type);
 //    let type_orgs_names = [];
 //
-//    for(let i=0; i < type_orgs.length){
+//    for(i=0; i < type_orgs.length){
 //       let type_org = type_orgs[i];
 //
 //       type_orgs_names.push(type_org['name']);
@@ -125,10 +125,10 @@ function get_org_by_name(name, type){
 
 publish({
   createOrg: createOrganization,
-  // get_org_by_name: get_org_by_name,
-  // get_orgs_by_type: get_orgs_by_type,
+  get_org_by_name: get_org_by_name,
+  get_orgs_by_type: get_orgs_by_type,
   // get_type_orgs_names: get_type_orgs_names,
-  // pValid: passwordValid,
+  pValid: passwordValid,
   back: backFunction,
   bKeys: backKeys,
   mKeys: makeKeyboard,
