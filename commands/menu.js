@@ -13,6 +13,7 @@ let lang = Libs.Lang.get();
 let tr = lang.translations;
 
 let cur_order = User.getProperty('curOrder');
+let boss = User.getGroup();
 
 let basket_keys = tr.clean + ',' + lang.order + '\n,' + tr.mainmenu ;
 let basket_msg = lang.basketlist + cur_order.msg;
@@ -52,6 +53,11 @@ switch (message) {
         Bot.sendKeyboard(tr.lang + ',' + tr.mainmenu, lang.mainmenu_but[4])
         Bot.runCommand('settings');
         break;
+    case '/admin':
+        if(boss == 'Boss'){
+           Bot.runCommand('/admin');
+           break;
+        }
     default:
         Bot.sendMessage('There is no such command')
         Bot.sendKeyboard(mainmenu_but , tr.mainmenu);

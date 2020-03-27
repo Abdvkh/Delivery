@@ -20,7 +20,7 @@ let orgs = Bot.getProperty('orgs');
 let org_i = mLi.pValid(message);
 
 if(message == '123' || boss=="Boss"){
-  let keys = mLi.mKeys(lang.super_admin.buttons);
+  let keys = mLi.mKeys(lang.super_admin.buttons) + ', onGitPush';
   User.addToGroup('Boss');
   Bot.sendKeyboard(keys, lang.super_admin.text);
 } else if (org_i >= 0) {

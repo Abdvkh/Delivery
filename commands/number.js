@@ -28,8 +28,6 @@ while (i < buts_length){
     i += 1;
 }
 
-mLi.back('menu', lang.translations.mainmenu, mainmenu_but', message);
-
 let number = message ;
 
 if(request['contact'] !== null){
@@ -49,7 +47,11 @@ if ( number > 998000000000 && number < 999000000000 ) {
     Bot.sendKeyboard( keyboard, lang.type.text );
     Bot.runCommand('type');
 } else {
-    Bot.sendMessage(lang.error);
-    Bot.sendMessage(lang.number);
-    Bot.runCommand("number");
+   if(message == lang.translations.mainmenu){
+      mLi.back('/menu', lang.translations.mainmenu, mainmenu_but, message);
+   } else {
+      Bot.sendMessage(lang.error);
+      Bot.sendMessage(lang.number);
+      Bot.runCommand("number");
+   }
 }

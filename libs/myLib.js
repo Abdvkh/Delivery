@@ -8,7 +8,7 @@ function backFunction(command, text, keyboards, message){
         Bot.sendKeyboard(keyboards, text);
         Bot.runCommand(command);
     } else if(message == trn.mainmenu){
-        Bot.runCommand('menu');
+        Bot.runCommand('/menu');
     }
 }
 
