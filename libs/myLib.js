@@ -154,7 +154,7 @@ publish({
   get_type_orgs_names: get_type_orgs_names,
   getOrgById: getOrgById,
   pValid: passwordValid,
-  productsToObj: productsObj,
+  productsToObj: productsToObj,
   rBasket: returnBasket,
   mKeys: makeKeyboard,
 });
