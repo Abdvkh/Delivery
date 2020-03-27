@@ -4,12 +4,15 @@
   need_reply: true
   auto_retry_time:
   folder:
-  answer:
+  answer: Добро подаловать в админку
   keyboard: Добавить категорию, \nДобавить продукты, \nСтатистика, Главное меню
   aliases:
 CMD*/
 
 let mLi = Libs.myLib;
+let org = mLi.getOrgById(options.org_id);
+
+Bot.sendMessage("Ваши лимиты по категориям - *" + org['limist']['categ'] + '*, и продуктам в них - *' + org['limist']['items'] + '*');
 
 switch (message) {
    case 'Добавить категорию':
@@ -31,7 +34,6 @@ switch (message) {
          })
          break;
    case "Статистика":
-      let org = mLi.getOrgById(options.org_id);
       let org_stat = org['orders_recieved'];
 
       Bot.sendMessage("Получено заказов: " + org_stat);

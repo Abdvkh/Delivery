@@ -6,7 +6,7 @@
   folder:
   answer: adding organization format: `name|password|type|admin's id|categ limit|items per categ limit`
   keyboard: Установить язык, \nСоздать организацию, \nСтатистика, Главное меню
-  aliases:
+  aliases: Создать организацию
 CMD*/
 
 let mLi = Libs.myLib;
