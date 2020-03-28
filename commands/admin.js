@@ -35,6 +35,9 @@ if (level=="Boss") {
       case "Главное меню":
          Bot.runCommand('/menu')
          break;
+      case 'onGitPush':
+         Bot.runCommand('onGitPush');
+         break;
       default:
          Bot.sendMessage('wrong command typed');
          Bot.runCommand('admin');

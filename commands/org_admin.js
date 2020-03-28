@@ -4,14 +4,14 @@
   need_reply: true
   auto_retry_time:
   folder:
-  answer: 
+  answer:
   keyboard: Добавить категорию, \nДобавить продукты, \nСтатистика, Главное меню
   aliases:
 CMD*/
 
 let mLi = Libs.myLib;
 let orgs = Bot.getProperty('orgs');
-let org = orgs.orgs_info[options.org_id];
+let org = orgs.orgs_info[options.options.org_id];
 
 Bot.sendMessage("Ваши лимиты по категориям - *" + org['limits']['categ'] + '*, и продуктам в них - *' + org['limits']['items'] + '*');
 
@@ -21,27 +21,27 @@ switch (message) {
          command: 'addCateg',
          options: {
             type: 'category',
-            org_id: options.org_id
+            org_id: options.options.org_id
          }
       })
       break;
    case "Добавить продукты":
-         Bot.run({
-            command: 'addItems',
-            options: {
-               type: 'items',
-               org_id: options.org_id
-            }
-         })
-         break;
+      Bot.run({
+         command: 'addItems',
+         options: {
+            type: 'items',
+            org_id: options.options.org_id
+         }
+      })
+      break;
    case "Статистика":
       let org_stat = org['orders_recieved'];
 
       Bot.sendMessage("Получено заказов: " + org_stat);
-      Bot.runCommand('org_admin')
+      Bot.runCommand('org_admin');
       break;
    case "Главное меню":
-
+      Bot.runCommand('/menu');
       break;
    default:
       Bot.sendMessage('wrong command');

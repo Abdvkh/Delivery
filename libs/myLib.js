@@ -53,21 +53,21 @@ function returnBasket(){
 }
 
 function createOrganization(details){
-  let orgs = Bot.getProperty('orgs');
-  let new_org_info = {limits:{},products:{}};
+   let orgs = Bot.getProperty('orgs');
+   let new_org_info = {limits:{},products:{}};
 
-  new_org_info.name = details[0];
-  new_org_info.password = details[1];
-  new_org_info.type = details[2];
-  new_org_info.admin = details[3];
-  new_org_info['limits']['categ'] = details[4];
-  new_org_info['limits']['items'] = details[5];
-  new_org_info.orders_recieved = 0;
+   new_org_info.name = details[0];
+   new_org_info.password = details[1];
+   new_org_info.type = details[2];
+   new_org_info.admin = details[3];
+   new_org_info['limits']['categ'] = details[4];
+   new_org_info['limits']['items'] = details[5];
+   new_org_info.orders_recieved = 0;
 
-  orgs.amount = parseInt(orgs.amount) + 1;
+   orgs.amount = parseInt(orgs.amount) + 1;
 
-  orgs.orgs_info.push(new_org_info);
-  Bot.setProperty('orgs', orgs, 'Object');
+   orgs.orgs_info.push(new_org_info);
+   Bot.setProperty('orgs', orgs, 'Object');
 }
 
 function passwordValid(password){
@@ -84,14 +84,12 @@ function passwordValid(password){
 
 function get_orgs_by_type(type){
    let orgs = Bot.getProperty('orgs');
-   let orgs_amount = orgs.amount;
    let type_orgs = [];
 
-   for(i=0; i < parseInt(orgs_amount); i++){
+   for(i=0; i < parseInt(orgs.amount); i++){
       let org = orgs.orgs_info[i];
-      let org_type = org['type'];
 
-      if(org_type==type){
+      if(org['type'] == type){
          type_orgs.push(org);
       }
    }

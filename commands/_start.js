@@ -29,7 +29,7 @@ let curOrder = {
     prices: [],
     location: '',
     msg: '',
-    sum: '',
+    sum: 0,
 };
 
 User.setProperty('user_info', user_info, 'Object');

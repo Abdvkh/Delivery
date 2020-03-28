@@ -20,7 +20,7 @@ if (message != "Назад") {
       categories.push(message);
    }
    let orgs = Bot.getProperty('orgs');
-   let org = orgs.orgs_info[options.org_id];
+   let org = orgs.orgs_info[options.options.org_id];
 
    if (org['limits']['categ'] > Object.keys(org['products']).length) {
       for(i=0; i<categories.length; i++){
