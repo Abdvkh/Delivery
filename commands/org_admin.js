@@ -13,7 +13,7 @@ let mLi = Libs.myLib;
 let orgs = Bot.getProperty('orgs');
 let org = orgs.orgs_info[options.org_id];
 
-Bot.sendMessage("Ваши лимиты по категориям - *" + org['limist']['categ'] + '*, и продуктам в них - *' + org['limist']['items'] + '*');
+Bot.sendMessage("Ваши лимиты по категориям - *" + org['limits']['categ'] + '*, и продуктам в них - *' + org['limits']['items'] + '*');
 
 switch (message) {
    case 'Добавить категорию':

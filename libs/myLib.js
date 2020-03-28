@@ -64,7 +64,7 @@ function createOrganization(details){
   new_org_info['limits']['items'] = details[5];
   new_org_info.orders_recieved = 0;
 
-  orgs.amount += 1;
+  orgs.amount = Number(orgs.amount) 1;
 
   orgs.orgs_info.push(new_org_info);
   Bot.setProperty('orgs', orgs, 'Object');
@@ -73,7 +73,7 @@ function createOrganization(details){
 function passwordValid(password){
   let orgs = Bot.getProperty('orgs');
 
-  for(i=0; i < orgs.amount; i++){
+  for(i=0; i < Number(orgs.amount); i++){
     let org_password = orgs.orgs_info[i]['password'];
 
     if(password==org_password){break;}
