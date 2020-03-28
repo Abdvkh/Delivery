@@ -12,7 +12,12 @@ CMD*/
 let lang = Libs.Lang.get();
 
 if (message != "Назад") {
-   let categories = message.split(',');
+   if (',' in message) {
+      let categories = message.split(',');
+   } else {
+      let categories = [];
+      categories.push(message); 
+   }
    let orgs = Bot.getProperty('orgs');
    let org = orgs.orgs_info[options.org_id];
 

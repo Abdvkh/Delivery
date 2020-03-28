@@ -4,7 +4,7 @@
   need_reply: true
   auto_retry_time:
   folder:
-  answer: Добро подаловать в админку
+  answer: 
   keyboard: Добавить категорию, \nДобавить продукты, \nСтатистика, Главное меню
   aliases:
 CMD*/
