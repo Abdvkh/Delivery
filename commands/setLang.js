@@ -39,10 +39,11 @@ let uzLang = {
     number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo'ladi! \nMisol: +998901234567",
     error: "Raqamingizni formatga to'g'irlab jo'nating!",
     success: "Raqamingiz muvaffaqiyatli qabul qilindi! Raqam: \n",
-    type: {
-        text: "Qayerdan yetkazib beriladi?",
-        but: ["Kafedan","Magazindan","Boshqa joydan"],
-    },
+   type: {
+      text: "Qayerdan yetkazib beriladi?",
+      but: ["Kafedan","Magazindan","Boshqa joydan"],
+      commands: ["cafe", "shop", "others"]
+   },
     in_dev: "Rivojlanishda...",
     cafe: {
         text: "Kafedan yetkazib berish xizmatiga xush kelibsiz!",
@@ -95,11 +96,11 @@ let ruLang = {
     number: "Пожалуйстa, наберите ваш номер тлефона, это необходимо для дальнейшей связи с вами! \nПример: `+998901234567`",
     error: "Перепроверьте и отправьте свой номер заново!",
     success: "Ваш номер был успешно получен! \nНомер: ",
-    type: {
-        text: " Откуда доставляем?",
-        but: ["Кафе","Магазин","Другое"],
-        commands: ["cafe, shop", "others"]
-    },
+   type: {
+      text: " Откуда доставляем?",
+      but: ["Кафе","Магазин","Другое"],
+      commands: ["cafe", "shop", "others"]
+   },
     in_dev: "В разработке...",
     cafe: {
         text: "Добро пожаловать в доставку из кафе!",

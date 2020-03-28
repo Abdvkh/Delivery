@@ -19,28 +19,27 @@ let array = lang.type.but;
 let exists = array.includes(message);
 
 if (exists){
-    let index = array.indexOf(message);
-    let type_cmd = lang.type.commands[index];
+   let index = array.indexOf(message);
+   let type_cmd = lang.type.commands[index];
 
-    let type_orgs = mLi.get_orgs_by_type(type_cmd);
-    let type_orgs_names = mLi.get_type_orgs_names(type_cmd);//array
+   let type_orgs = mLi.get_orgs_by_type(type_cmd);
+   let type_orgs_names = mLi.get_type_orgs_names(type_cmd);//array
 
-    if(type_orgs.length > 0){
-       let type_orgs_names_keys = mLi.mKeys(type_orgs_names);
+   if(type_orgs.length > 0){
+      let type_orgs_names_keys = mLi.mKeys(type_orgs_names);
+      curOrder['organization']['type'] = type_cmd;
 
-       curOrder['organization']['type'] = type_cmd;
+      mLi.bKeys('type', lang.type.text, back.keys[1]);
 
-       mLi.bKeys('type', lang.type.text, back.keys[1]);
-
-       Bot.sendKeyboard(type_orgs_names_keys, lang.cafe.choose);
-       Bot.run({
-               command: 'orgs',
-               options: {type: type_cmd}
-       });
-    } else {
-      Bot.sendMessage('No ' + message + 'exists');
+      Bot.sendKeyboard(type_orgs_names_keys, lang.cafe.choose);
+      Bot.run({
+            command: 'orgs',
+            options: {type: type_cmd}
+      });
+   } else {
+      Bot.sendMessage('No ' + message + ' exists');
       mLi.back('type', lang.type.text, back.keys[1], 'Назад');
    }
 } else {
-   mLi.back(back.cmd, back.txt, back.keys[0], lang.translations.mainmenu);
+   mLi.back(back.cmd, back.txt, back.keys[0], message);
 }

@@ -8,9 +8,3 @@
   keyboard:
   aliases:
 CMD*/
-//
-// let user_info = Bot.getProperty('user_info');
-//
-// let msg = 'This is profile';
-//
-// Bot.sendMessage(msg);

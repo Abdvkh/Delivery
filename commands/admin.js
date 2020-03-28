@@ -29,7 +29,7 @@ if (level=="Boss") {
                     "\nActive during last day: " + statistics.active_during_last_day +
                     "\nActive during last week: " + statistics.active_during_last_week
 
-         Bot.sendMessage(lang.bots_stat + ":\n\n" + org_stat);
+         Bot.sendMessage(lang.bots_stat + ":\n\n" + stat);
          Bot.runCommand('admin')
          break;
       case "Главное меню":
