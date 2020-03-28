@@ -12,7 +12,6 @@ CMD*/
 let lang = Libs.Lang.get();
 let mLi = Libs.myLib;
 let exclamation = message.indexOf('!');
-let options = options.options;
 
 if (exclamation != -1) {
    Bot.sendMessage(lang.exclamation_error);

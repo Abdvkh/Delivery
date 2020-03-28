@@ -16,7 +16,7 @@ function backKeys(cmd, txt, keys){
    let back = {
       cmd: cmd,
       txt: txt,
-      keys: keys,
+      keys: keys
    };
    User.setProperty('back', back,'Object');
 }
@@ -139,7 +139,7 @@ function productsToObj(productsString) {
 
    for(i=1; i<=productsArr.length; i++){
       if(i%2 == 0){
-         productsJSON[productsArr[i-2]] = JSON.parse(productsArr[i-1]);
+         productsObj[productsArr[i-2]] = JSON.parse(productsArr[i-1]);
       }
    }
    return productsObj;
@@ -168,5 +168,5 @@ publish({
    pValid: passwordValid,
    productsToObj: productsToObj,
    rBasket: returnBasket,
-   mKeys: makeKeyboard,
+   mKeys: makeKeyboard
 });

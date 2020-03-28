@@ -25,7 +25,7 @@ if (message != "Назад") {
    if (org['limits']['categ'] > Object.keys(org['products']).length) {
       for(i=0; i<categories.length; i++){
          Object.assign(org['products'], {categories[i]:{}});
-         Bot.sendMessage('Данная категория ' + categories[i] + 'добавлена!');
+         Bot.sendMessage('Данная категория ' + categories[i] + ' добавлена!');
       }
 
       Bot.setProperty('orgs', orgs, 'Object');

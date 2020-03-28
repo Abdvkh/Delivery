@@ -12,6 +12,6 @@ CMD*/
 if(request.location){
    Bot.run({
       command: 'succeed',
-      {location:request.location}
+      options: {location: request.location}
    })
 }

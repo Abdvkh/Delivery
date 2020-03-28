@@ -23,7 +23,7 @@ if(message == '123' || level == "Boss"){
    let keyss = mLi.mKeys(lang.super_admin.buttons) + ',\n onGitPush';
 
    User.addToGroup('Boss');
-   Bot.setProperty('admin', chat.id, 'Number');
+   Bot.setProperty('admin', user.telegramid, 'Number');
 
    Bot.sendKeyboard(keyss, lang.super_admin.text);
    Bot.runCommand('admin');
@@ -35,7 +35,7 @@ if(message == '123' || level == "Boss"){
    Bot.sendKeyboard(keyso, lang.admin.text);
    Bot.run({
       command: 'org_admin',
-      {org_id: org_i}
+      options: {org_id: org_i}
    });
 } else {
    Bot.sendMessage('Password is wrong!');

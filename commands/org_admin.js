@@ -19,15 +19,19 @@ switch (message) {
    case 'Добавить категорию':
       Bot.run({
          command: 'addCateg',
-         {type: 'category',
-         org_id: options.org_id}
+         options: {
+            type: 'category',
+            org_id: options.org_id
+         }
       })
       break;
    case "Добавить продукты":
       Bot.run({
          command: 'addItems',
-         {type: 'items',
-         org_id: options.org_id}
+         options: {
+            type: 'items',
+            org_id: options.org_id
+         }
       })
       break;
    case "Статистика":

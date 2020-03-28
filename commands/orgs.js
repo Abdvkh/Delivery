@@ -36,22 +36,24 @@ for(let i=0; i < orgs.length; i++){
    let org = orgs[i];
 
    if(message == org['name']){
-       let categ = Object.getOwnPropertyNames(org['products']);
-       let categories_keys = mLi.mKeys(categ);
+      let categ = Object.getOwnPropertyNames(org['products']);
+      let categories_keys = mLi.mKeys(categ);
 
-       let orgs_names = mLi.mKeys(orgs.every(orgs_names));
-       mLi.bKeys('orgs', lang['choose'], orgs_names);
+      let orgs_names = mLi.mKeys(orgs.every(orgs_names));
+      mLi.bKeys('orgs', lang['choose'], orgs_names);
 
-       curOrder['organization']['name'] = message;
-       User.setProperty('curOrder', curOrder, 'Object');
+      curOrder['organization']['name'] = message;
+      User.setProperty('curOrder', curOrder, 'Object');
 
-       Bot.sendKeyboard(categories_keys, lang['choice']);
-       Bot.run({
+      Bot.sendKeyboard(categories_keys, lang['choice']);
+      Bot.run({
          command:'choice',
-         {type: type,
-         name: org['name'],
-         categories: categories_keys}
-       });
-       break;
+         options: {
+            type: type,
+            name: org['name'],
+            categories: categories_keys
+         }
+      });
+      break;
    }
 }

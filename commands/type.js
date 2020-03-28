@@ -34,7 +34,7 @@ if (exists){
       Bot.sendKeyboard(type_orgs_names_keys, lang.cafe.choose);
       Bot.run({
             command: 'orgs',
-            {type: type_cmd}
+            options: {type: type_cmd}
       });
    } else {
       Bot.sendMessage('No ' + message + ' exists');
