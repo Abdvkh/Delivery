@@ -13,7 +13,7 @@ let uzLang = {
    bots_stat: 'Botning statistikasi',
    choice: "Menyudan biror nima tanlab oling:",
    choose: "Qaysi biridan yetkazib beriladi?",
-   exclamation_error: ""!" belgisi quyilmagan, iltimos to'girlang!",
+   exclamation_error: "'!' belgisi quyilmagan, iltimos to`girlang!",
    org_limit:'Siz korxonangiz limiti tugagan, kopaytirish uchun adminga[@Abduvakhidov] murojat qiling!',
    translations: {
       again: "Yana biror nima qo`shmoqchimisiz?",
@@ -68,7 +68,7 @@ let uzLang = {
 
 let ruLang = {
    bots_stat: "Статистика по боту",
-   exclamation_error: "Не введен "!" знак между категорией и продуктами, пожалуйста исправьте!",
+   exclamation_error: "Не введен '!' знак между категорией и продуктами, пожалуйста исправьте!",
    translations: {
       again: "Еще чего нибудь желаете?",
       agr: "Да",
