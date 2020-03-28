@@ -38,7 +38,7 @@ if(message == '123' || level=="Boss"){
       options: {
          org_id: org_i
       }
-   })
+   });
 } else {
    Bot.sendMessage('Password is wrong!');
    Bot.runCommand('menu');
