@@ -10,8 +10,11 @@
 CMD*/
 
 let lang = Libs.Lang.get();
+let exclamation = productsString.indexOf('!');
 
-if (message != "Назад") {
+if (exclamation != -1) {
+   Bot.sendMessage(lang.exclamation_error);
+} else if (message != "Назад") {
    let addition = mLi.productsToObj(message);
    let orgs = Bot.getProperty('orgs');
    let org = orgs.orgs_info[options.org_id];

@@ -10,13 +10,14 @@
 CMD*/
 
 let lang = Libs.Lang.get();
+let comma = message.indexOf(',');
 
 if (message != "Назад") {
-   if (',' in message) {
+   if (comma > -1) {
       let categories = message.split(',');
    } else {
       let categories = [];
-      categories.push(message); 
+      categories.push(message);
    }
    let orgs = Bot.getProperty('orgs');
    let org = orgs.orgs_info[options.org_id];
@@ -32,5 +33,6 @@ if (message != "Назад") {
       Bot.sendMessage(lang.org_limit);
    }
 }
+
 Bot.sendMessage(lang.admin.text);
 Bot.runCommand('org_admin');
