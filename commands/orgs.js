@@ -14,7 +14,7 @@ CMD*/
 let lang = Libs.Lang.get();
 let mLi = Libs.myLib;
 
-let type = options.options.type;
+let type = options.type;
 
 let orgs = mLi.get_orgs_by_type(type);
 
@@ -47,12 +47,10 @@ for(let i=0; i < orgs.length; i++){
 
        Bot.sendKeyboard(categories_keys, lang['choice']);
        Bot.run({
-          command:'choice',
-          options: {
-             type: type,
-             name: org['name'],
-             categories: categories_keys
-          }
+         command:'choice',
+         {type: type,
+         name: org['name'],
+         categories: categories_keys}
        });
        break;
    }

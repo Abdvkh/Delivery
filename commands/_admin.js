@@ -35,9 +35,7 @@ if(message == '123' || level == "Boss"){
    Bot.sendKeyboard(keyso, lang.admin.text);
    Bot.run({
       command: 'org_admin',
-      options: {
-         org_id: org_i
-      }
+      {org_id: org_i}
    });
 } else {
    Bot.sendMessage('Password is wrong!');

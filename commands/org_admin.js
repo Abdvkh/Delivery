@@ -11,7 +11,7 @@ CMD*/
 
 let mLi = Libs.myLib;
 let orgs = Bot.getProperty('orgs');
-let org = orgs.orgs_info[options.options.org_id];
+let org = orgs.orgs_info[options.org_id];
 
 Bot.sendMessage("Ваши лимиты по категориям - *" + org['limits']['categ'] + '*, и продуктам в них - *' + org['limits']['items'] + '*');
 
@@ -19,19 +19,15 @@ switch (message) {
    case 'Добавить категорию':
       Bot.run({
          command: 'addCateg',
-         options: {
-            type: 'category',
-            org_id: options.options.org_id
-         }
+         {type: 'category',
+         org_id: options.org_id}
       })
       break;
    case "Добавить продукты":
       Bot.run({
          command: 'addItems',
-         options: {
-            type: 'items',
-            org_id: options.options.org_id
-         }
+         {type: 'items',
+         org_id: options.org_id}
       })
       break;
    case "Статистика":
