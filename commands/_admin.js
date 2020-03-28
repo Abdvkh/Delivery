@@ -19,20 +19,20 @@ let mLi = Libs.myLib;
 let orgs = Bot.getProperty('orgs');
 let org_i = mLi.pValid(message);
 
-if(message == '123' || level=="Boss"){
-   let keys = mLi.mKeys(lang.super_admin.buttons) + ', onGitPush';
+if(message == '123' || level == "Boss"){
+   let keyss = mLi.mKeys(lang.super_admin.buttons) + ',\n onGitPush';
 
    User.addToGroup('Boss');
    Bot.setProperty('admin', chat.id, 'Number');
 
-   Bot.sendKeyboard(keys, lang.super_admin.text);
+   Bot.sendKeyboard(keyss, lang.super_admin.text);
    Bot.runCommand('admin');
 } else if (org_i >= 0) {
-   let keys = mLi.mKeys(lang.admin.buttons);
+   let keyso = mLi.mKeys(lang.admin.buttons);
 
    User.addToGroup(orgs.orgs_info[org_i]['name']);
 
-   Bot.sendKeyboard(keys, lang.admin.text);
+   Bot.sendKeyboard(keyso, lang.admin.text);
    Bot.run({
       command: 'org_admin',
       options: {
@@ -41,5 +41,5 @@ if(message == '123' || level=="Boss"){
    });
 } else {
    Bot.sendMessage('Password is wrong!');
-   Bot.runCommand('menu');
+   Bot.runCommand('/admin');
 }
