@@ -10,20 +10,30 @@
 CMD*/
 
 let uzLang = {
-    translations: {
-        again: "Yana biror nima qo`shmoqchimisiz?",
-        agr: "Xa",
-        disagr: "Yoq",
-        basket: "Savat",
-        clean: "Tozalash",
-        back: "Ortga",
-        mainmenu: "Asosiy menyu",
-        confirm: "Tasdiqlash",
-        cancel: "Bekor qilish",
-        lang: "Til"
-    },
-    choice: "Menyudan biror nima tanlab oling:",
-    choose: "Qaysi biridan yetkazib beriladi?",
+   bots_stat: 'Botning statistikasi',
+   choice: "Menyudan biror nima tanlab oling:",
+   choose: "Qaysi biridan yetkazib beriladi?",
+   org_limit:'Siz korxonangiz limiti tugagan, kopaytirish uchun adminga[@Abduvakhidov] murojat qiling!',
+   translations: {
+      again: "Yana biror nima qo`shmoqchimisiz?",
+      agr: "Xa",
+      disagr: "Yoq",
+      basket: "Savat",
+      clean: "Tozalash",
+      back: "Ortga",
+      mainmenu: "Asosiy menyu",
+      confirm: "Tasdiqlash",
+      cancel: "Bekor qilish",
+      lang: "Til"
+   },
+   super_admin: {
+     text: "Adminkaga xush kelibsiz",
+     buttons: ["Til urnatish", "Korxona yaratish", "Statistika"]
+   },
+   admin: {
+     text: "Korxona adminksiga xish kelibsiz",
+     buttons: ["Kategoriya yaratish", 'Narsalar qushish', "Narsa uchirish", "Statistika"]
+   },
     mainmenu_but: ["Buyurtma berish", "Savatni ko`rish", "Mening profilim", "Yordam", "Sozlanma"],
     hello: "Assalomu aleykum *" ,
     number: "Iltimos telefon raqamingizni kiriting, bu bizga siz bilan aloqaga chiqishga kerak bo'ladi! \nMisol: +998901234567",
@@ -56,27 +66,27 @@ let uzLang = {
 
 let ruLang = {
    bots_stat: "Статистика по боту",
-    translations: {
-        again: "Еще чего нибудь желаете?",
-        agr: "Да",
-        back: "Назад",
-        basket: "Корзина",
-        cancel: "Отменить",
-        choice: "Выберите продукты из меню",
-        clean: "Очистить",
-        confirm: "Подтвердить",
-        disagr: "Нет",
-        lang: "Язык",
-        mainmenu: "Главное меню",
-    },
-    super_admin: {
-      text: "Добро пожаловать в админку",
-      buttons: ["Установить язык", "Создать организацию", "Статистика"]
-    },
-    admin: {
-      text: "Добро пожаловать в админку организации",
-      buttons: ["Новые продукты", "Удалить продукт", "Статистика"]
-    },
+   translations: {
+      again: "Еще чего нибудь желаете?",
+      agr: "Да",
+      back: "Назад",
+      basket: "Корзина",
+      cancel: "Отменить",
+      choice: "Выберите продукты из меню",
+      clean: "Очистить",
+      confirm: "Подтвердить",
+      disagr: "Нет",
+      lang: "Язык",
+      mainmenu: "Главное меню",
+   },
+   super_admin: {
+   text: "Добро пожаловать в админку",
+   buttons: ["Установить язык", "Создать организацию", "Статистика"]
+   },
+   admin: {
+   text: "Добро пожаловать в админку организации",
+   buttons: ["Добавить категорию", 'Добавить продукты', "Удалить продукт", "Статистика"]
+   },
     org_limit: "Вы достигли выделенного лимита! Пожалуйста обратитесь в администрацию за повышением лимита @Abduvakhidov",
     choice: "Выберите категорию",
     choose: "Выберите организацию откуда производится доставка.",
