@@ -27,7 +27,7 @@ if(message == '123' || level == "Boss"){
 
    Bot.sendKeyboard(keyss, lang.super_admin.text);
    Bot.runCommand('admin');
-} else if (org_i >= 0) {
+} else if (org_i >= 0 || level) {
    let keyso = mLi.mKeys(lang.admin.buttons);
 
    User.addToGroup(orgs.orgs_info[org_i]['name']);
