@@ -1,55 +1,57 @@
 let LIB_PREFIX = 'my_lib_';
 
 function backFunction(command, text, keyboards, message){
-    let lang = Libs.Lang.get();
-    let trn = lang.translations;
+   let lang = Libs.Lang.get();
+   let trn = lang.translations;
 
-    if(message == trn.back){
-        Bot.sendKeyboard(keyboards, text);
-        Bot.runCommand(command);
-    } else if(message == trn.mainmenu){
-        Bot.runCommand('/menu');
-    }
+   if(message == trn.back){
+      Bot.sendKeyboard(keyboards, text);
+      Bot.runCommand(command);
+   } else if(message == trn.mainmenu){
+      Bot.runCommand('/menu');
+   }
 }
 
 function backKeys(cmd, txt, keys){
-    let back = {
-        cmd: cmd,
-        txt: txt,
-        keys: keys,
-    };
-    User.setProperty('back', back,'Object');
+   let back = {
+      cmd: cmd,
+      txt: txt,
+      keys: keys,
+   };
+   User.setProperty('back', back,'Object');
 }
 
 function makeKeyboard(array){
-    let keyboard = '';
-    let lang = Libs.Lang.get();
+   let keyboard = '';
+   let lang = Libs.Lang.get();
 
-    for(i = 1; i <= array.length; i++){
+   for(i = 1; i <= array.length; i++){
+      if (array.length==1) {
+         keyboard += array[i-1];
+      } else {
+         keyboard += array[i-1] + ',' ;
+      }
+      if(i % 2 == 0){
+         keyboard += '\n,';
+      }
+   }
 
-        keyboard += array[i-1] + ',' ;
-
-        if(i % 2 == 0){
-            keyboard += '\n,';
-        }
-    }
-
-    keyboard += '\n' + lang.translations.back + ',' + lang.translations.mainmenu ;
-    return keyboard;
+   keyboard += '\n' + lang.translations.back + ',' + lang.translations.mainmenu ;
+   return keyboard;
 }
 
 function returnBasket(){
-    let details = User.getProperty('curOrder');
+   let details = User.getProperty('curOrder');
 
-    if(details.msg == ''){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' }
-    if(details.sum == 0){ details.sum = 0 }
+   if(details.msg == ''){ details.msg =  'Ваш заказ из кафе *Everest Burger*:' }
+   if(details.sum == 0){ details.sum = 0 }
 
-    for (var i = 0; i < details.purchases.length; i++){
-        details.msg += '\n*' + details.purchases[i] + '*\n' + '\n' + details.amount[i] + 'x' + details.price[i] + ' = ' + details.amount[i] * details.price[i];
-        details.sum += details.amount[i] * details.price[i];
-    }
+   for (var i = 0; i < details.purchases.length; i++){
+      details.msg += '\n*' + details.purchases[i] + '*\n' + '\n' + details.amount[i] + 'x' + details.price[i] + ' = ' + details.amount[i] * details.price[i];
+      details.sum += details.amount[i] * details.price[i];
+   }
 
-    User.setProperty('curOrder', details, 'Object');
+   User.setProperty('curOrder', details, 'Object');
 }
 
 function createOrganization(details){
@@ -71,15 +73,15 @@ function createOrganization(details){
 }
 
 function passwordValid(password){
-  let orgs = Bot.getProperty('orgs');
+   let orgs = Bot.getProperty('orgs');
 
-  for(i=0; i < Number(orgs.amount); i++){
-    let org_password = orgs.orgs_info[i]['password'];
+   for(i=0; i < Number(orgs.amount); i++){
+      let org_password = orgs.orgs_info[i]['password'];
 
-    if(password==org_password){return i;}
-  }
+      if(password==org_password){return i;}
+   }
 
-  return -1;
+   return -1;
 }
 
 function get_orgs_by_type(type){
@@ -155,16 +157,16 @@ function isAdmin(id) {
 }
 
 publish({
-  back: backFunction,
-  bKeys: backKeys,
-  createOrg: createOrganization,
-  get_org_by_name: get_org_by_name,
-  get_orgs_by_type: get_orgs_by_type,
-  get_type_orgs_names: get_type_orgs_names,
-  getOrgById: getOrgById,
-  isAdmin: isAdmin,
-  pValid: passwordValid,
-  productsToObj: productsToObj,
-  rBasket: returnBasket,
-  mKeys: makeKeyboard,
+   back: backFunction,
+   bKeys: backKeys,
+   createOrg: createOrganization,
+   get_org_by_name: get_org_by_name,
+   get_orgs_by_type: get_orgs_by_type,
+   get_type_orgs_names: get_type_orgs_names,
+   getOrgById: getOrgById,
+   isAdmin: isAdmin,
+   pValid: passwordValid,
+   productsToObj: productsToObj,
+   rBasket: returnBasket,
+   mKeys: makeKeyboard,
 });

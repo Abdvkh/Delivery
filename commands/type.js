@@ -30,7 +30,7 @@ if (exists){
       curOrder['organization']['type'] = type_cmd;
 
       mLi.bKeys('type', lang.type.text, back.keys[1]);
-
+      Bot.setProperty('curOrder', curOrder, 'Object');
       Bot.sendKeyboard(type_orgs_names_keys, lang.cafe.choose);
       Bot.run({
             command: 'orgs',

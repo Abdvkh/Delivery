@@ -14,7 +14,7 @@ CMD*/
 let lang = Libs.Lang.get();
 let mLi = Libs.myLib;
 
-let type = options.type;
+let type = options.options.type;
 
 let orgs = mLi.get_orgs_by_type(type);
 
