@@ -48,7 +48,7 @@ for(let i=0; i < orgs.length; i++){
             options: {
                type: type,
                name: org['name'],
-               categories: categories_keys
+               categoriesArr: categ
             }
          });
       } else {

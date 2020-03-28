@@ -10,11 +10,24 @@
 CMD*/
 
 let lang = Libs.Lang.get();
-let text = "This is your location:\n" + 'longitude: '+ options.location.longitude + '\nlatitude: ' + options.location.latitude;
+let mLi = Libs.myLib;
+let curOrder = User.getProperty('curOrder');
+let org = mLi.get_org_by_name(curOrder['organization']['name']);
+let user = User.getProperty('user_info');
+let mainmenuButs = mLi.mKeys(lang.mainmenu_but);
 
-order_info = User.getProperty('curOrder');
+user_info['orders'] += 1;
+curOrder.location = options.location.longitude + ',' + options.location.latitude;
+User.setProperty('curOrder', curOrder,'Object');
 
-order_info.location = options.location.longitude + ',' + options.location.latitude;
-User.setProperty('curOrder', order_info,'Object');
+let keyboards = [
+   {text: 'Принять', command:'order a|' + user.telegramid},
+   {text: 'Отказать', command:'order r|' + user.telegramid},
+];
+let request = "Заявка от:\n" + "Пользователя: [" + user.user_name + "](tg://user?id=" + user.user_id + ")\n" +
+               "Телефон: " + user.user_number + '\n\nДетали заказа:\n' + curOrder['msg'] +
+               "\nНа сумму: " + curOrder['sum'];
 
-Bot.sendKeyboard(lang.translations.mainmenu, 'You have succed wait for the feedback from the operators\n\n' + text);
+Bot.sendInlineKeyboardToChatWithId(org['admin'], keyboards, request);
+Bot.sendMessage(lang.succeed);
+Bot.runCommand('/menu');

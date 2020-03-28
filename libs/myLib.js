@@ -75,7 +75,7 @@ function createOrganization(details){
 function passwordValid(password){
    let orgs = Bot.getProperty('orgs');
 
-   for(i=0; i < Number(orgs.amount); i++){
+   for(i=0; i < parseInt(orgs.amount); i++){
       let org_password = orgs.orgs_info[i]['password'];
 
       if(password==org_password){return i;}
@@ -98,15 +98,17 @@ function get_orgs_by_type(type){
    return type_orgs;
 }
 
-function get_org_by_name(name, type){
-   let type_orgs = get_orgs_by_type(type);
+function get_org_by_name(name){
+   let orgs = Bot.getProperty('orgs');
+   let orgs_info = orgs.orgs_info;
+   let org = new Object();
 
-   for(i=0; i < type_orgs.length; i++){
-      let org = type_orgs[i];
+   for(i=0; i < orgs_info.length; i++){
+      let org = orgs_info[i];
       let org_name = org['name'];
 
       if(org_name == name){
-         break;
+         return org;
       }
    }
    return org;
@@ -135,7 +137,7 @@ function getOrgById(id){
 
 function productsToObj(productsString) {
    let productsArr = productsString.split('!');
-   let productsObj = {};
+   let productsObj = new Object();
 
    for(i=1; i<=productsArr.length; i++){
       if(i%2 == 0){

@@ -15,24 +15,22 @@ let transl = lang.translations;
 let opt    = User.getProperty('curOrder');
 
 switch (message) {
-    case transl.agr:
-        types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
-        keyboard = mLi.mKeys(types);
-        last_keyboard = lang.agr + ',' + lang.order + ",\n" + lang.mainmenu;
+   case transl.agr:
+      let types = Object.getOwnPropertyNames(lang[opt.code]['menu']);
+      let keyboard = mLi.mKeys(types);
+      let last_keyboard = lang.agr + ',' + lang.order + ",\n" + lang.mainmenu;
 
-        mLi.bKeys('answer', lang.again, last_keyboard);
+      mLi.bKeys('answer', lang.again, last_keyboard);
 
-        Bot.sendKeyboard(keyboard, lang[opt.code]['text']);
+      Bot.sendKeyboard(keyboard, lang[opt.code]['text']);
+      break;
+   case lang.order:
+      let keyboard = lang.payment.but + ',' + transl.back + ',' + transl.mainmenu;
+      mLi.bKeys('answer', lang.payment.text, keyboard);
 
-        break;
-    case lang.order:
-        keyboard = lang.payment.but + ',' + transl.back + ',' + transl.mainmenu;
-        mLi.bKeys('answer', lang.payment.text, keyboard);
-
-        Bot.sendKeyboard(keyboard, lang.payment.text);
-        Bot.runCommand('payment');
-
-        break;
-    default:
-        Bot.runCommand('menu');
+      Bot.sendKeyboard(keyboard, lang.payment.text);
+      Bot.runCommand('payment');
+      break;
+   default:
+      Bot.runCommand('menu');
 }

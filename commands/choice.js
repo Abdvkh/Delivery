@@ -15,22 +15,26 @@ let mLi = Libs.myLib;
 
 let curOrder = User.getProperty('curOrder');
 
-let cafe = mLi.get_org_by_name(options.name, options.type);
+let org = mLi.get_org_by_name(options.name, options.type);
 
-if(message in options.categories){ //categories is string of keyboards
+if(options.categoriesArr.includes(message)){ //categories is array of keyboards
    curOrder['organization'] = options.name;
    // curOrder.purchases.push(message); not needed because it's categories handler
    User.setProperty('curOrder', curOrder,'Object');
 
-   mLi.bKeys("choice", lang['choice'], options.categories);
+   let categKeys = mLi.mKeys(options.categoriesArr);
+   mLi.bKeys("choice", lang['choice'], categKeys);
 
-   let items_array = Object.getOwnPropertyNames(cafe['products'][message]);
+   let items_array = Object.getOwnPropertyNames(org['products'][message]);
    let items_keys = mLi.mKeys(items_array);
 
    Bot.sendKeyboard(items_keys , message);
    Bot.run({
       command:'purchase',
-      options: {categories_keys: options.categories}
+      options: {
+         categoriesArr: options.categoriesArr,
+         choosenCateg: message
+      }
    });
 } else {
   let back = User.getProperty('back');

@@ -18,20 +18,20 @@ let trn   = lang.translations;
 let curOrder = User.getProperty('curOrder');
 
 if(message > 0){
-    curOrder.amount.push(message);
-    User.setProperty('curOrder', curOrder, 'Object');
+   curOrder.amount.push(message);
+   User.setProperty('curOrder', curOrder, 'Object');
 
-    mLi.rBasket();
+   mLi.rBasket();
 
-    let curOrder    = User.getProperty('curOrder');
-    let keyboard = trn.agr + ',' + lang.order + ",\n" + trn.mainmenu;
+   let curOrder    = User.getProperty('curOrder');
+   let keyboard = trn.agr + ',' + lang.order + ",\n" + trn.mainmenu;
 
-    mLi.bKeys('amount' , trn.again, keyboard);
+   mLi.bKeys('amount' , trn.again, keyboard);
 
-    Bot.sendMessage(curOrder.msg);
-    Bot.sendKeyboard(keyboard,trn.again);
-    Bot.runCommand('answer');
+   Bot.sendMessage(curOrder.msg);
+   Bot.sendKeyboard(keyboard,trn.again);
+   Bot.runCommand('answer');
 }else{
-    let back = User.getProperty('back');
-    mLi.back(back.cmd, back.txt, back.keys, message);
+   let back = User.getProperty('back');
+   mLi.back(back.cmd, back.txt, back.keys, message);
 }

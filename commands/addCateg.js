@@ -16,16 +16,23 @@ if (message != "Назад") {
    if (comma > -1) {
       let categories = message.split(',');
    } else {
-      let categories = [];
+      let categories = new Array();
       categories.push(message);
    }
    let orgs = Bot.getProperty('orgs');
    let org = orgs.orgs_info[options.org_id];
+   let productsObj = org['products'];
+   let categ = Object.keys(productsObj);
+   let limit = org['limits']['categ'];
+   let addingAmount = parseInt(limit) - parseInt(categ.length);
 
-   if (org['limits']['categ'] > Object.keys(org['products']).length) {
-      for(i=0; i<categories.length; i++){
-         Object.assign(org['products'], {categories[i]:{}});
-         Bot.sendMessage('Данная категория ' + categories[i] + ' добавлена!');
+   if (categ.includes(message)) {
+      Bot.sendMessage(lang.categExists);
+   } else if (limit > categ.length && limit => addingAmount) {
+
+      for(i=0; i < categories.length; i++){
+         productsObj[categories[i] = {};
+         Bot.sendMessage(lang.categAdded + ': ' + categories[i]);
       }
 
       Bot.setProperty('orgs', orgs, 'Object');
