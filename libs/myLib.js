@@ -76,10 +76,10 @@ function passwordValid(password){
   for(i=0; i < Number(orgs.amount); i++){
     let org_password = orgs.orgs_info[i]['password'];
 
-    if(password==org_password){break;}
+    if(password==org_password){return i;}
   }
 
-  return i;
+  return -1;
 }
 
 function get_orgs_by_type(type){
