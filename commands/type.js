@@ -31,10 +31,13 @@ if (exists){
 
       mLi.bKeys('type', lang.type.text, back.keys[1]);
       Bot.setProperty('curOrder', curOrder, 'Object');
-      Bot.sendKeyboard(type_orgs_names_keys, lang.cafe.choose);
+      Bot.sendKeyboard(type_orgs_names_keys, lang.choose);
       Bot.run({
             command: 'orgs',
-            options: {type: type_cmd}
+            options: {
+               type: type_cmd,
+               type_orgs_names_keys: type_orgs_names_keys
+            }
       });
    } else {
       Bot.sendMessage('No ' + message + ' exists');

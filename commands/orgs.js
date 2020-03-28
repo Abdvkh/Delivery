@@ -20,11 +20,7 @@ let orgs = mLi.get_orgs_by_type(type);
 
 let curOrder = User.getProperty('curOrder');
 
-function orgs_name(org){
-   return org['name'];
-}
-
-if(orgs.length <= 1){
+if(orgs.length < 1){
    let back = User.getProperty("back");
    mLi.back(back.cmd, back.txt, back.keys,message);
 
@@ -37,23 +33,33 @@ for(let i=0; i < orgs.length; i++){
 
    if(message == org['name']){
       let categ = Object.getOwnPropertyNames(org['products']);
-      let categories_keys = mLi.mKeys(categ);
 
-      let orgs_names = mLi.mKeys(orgs.every(orgs_names));
-      mLi.bKeys('orgs', lang['choose'], orgs_names);
+      if (categ) {
+         let categories_keys = mLi.mKeys(categ);
 
-      curOrder['organization']['name'] = message;
-      User.setProperty('curOrder', curOrder, 'Object');
+         mLi.bKeys('orgs', lang['choose'], options.type_orgs_names_keys);
 
-      Bot.sendKeyboard(categories_keys, lang['choice']);
-      Bot.run({
-         command:'choice',
-         options: {
-            type: type,
-            name: org['name'],
-            categories: categories_keys
-         }
-      });
+         curOrder['organization']['name'] = message;
+         User.setProperty('curOrder', curOrder, 'Object');
+
+         Bot.sendKeyboard(categories_keys, lang['choice']);
+         Bot.run({
+            command:'choice',
+            options: {
+               type: type,
+               name: org['name'],
+               categories: categories_keys
+            }
+         });
+      } else {
+         Bot.sendMessage(lang.in_dev);
+         Bot.run({
+            command: 'orgs',
+            options:{
+               type_orgs_names_keys: options.type_orgs_names_keys
+            }
+         });
+      }
       break;
    }
 }
