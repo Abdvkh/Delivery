@@ -127,9 +127,9 @@ let ruLang = {
 let level = User.getGroup();
 
 if(level == "Boss"){
-Libs.Lang.setup("uz", uzLang);
-Libs.Lang.setup("ru", ruLang);
+   Libs.Lang.setup("uz", uzLang);
+   Libs.Lang.setup("ru", ruLang);
 
-Bot.sendMessage("Languages are successfully set!");
-Bot.runCommand("admin");
+   Bot.sendMessage("Languages are successfully set!");
+   Bot.runCommand("admin");
 }

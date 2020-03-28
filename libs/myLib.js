@@ -87,7 +87,7 @@ function get_orgs_by_type(type){
    let orgs_amount = orgs.amount;
    let type_orgs = [];
 
-   for(i=0; i < orgs_amount; i++){
+   for(i=0; i < parseInt(orgs_amount); i++){
       let org = orgs.orgs_info[i];
       let org_type = org['type'];
 
@@ -126,7 +126,7 @@ function get_type_orgs_names(type){
 
 function getOrgById(id){
    let orgs = Bot.getProperty('orgs');
-   if (id < orgs.amoun) {
+   if (id < parseInt(orgs.amount)) {
       return orgs.orgs_info[id];
    } else {
       return 0;
