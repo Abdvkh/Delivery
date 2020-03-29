@@ -1,5 +1,5 @@
 /*CMD
-  command: addItems
+  command: addProds
   help:
   need_reply: true
   auto_retry_time:
