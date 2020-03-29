@@ -28,7 +28,7 @@ if (message != "Назад") {
 
    if (categ.includes(message)) {
       Bot.sendMessage(lang.categExists);
-   } else if (limit > categ.length && limit => addingAmount) {
+   } else if (limit > categ.length && limit >= addingAmount) {
 
       for(i=0; i < categories.length; i++){
          productsObj[categories[i] = {};
@@ -42,4 +42,9 @@ if (message != "Назад") {
 }
 
 Bot.sendMessage(lang.admin.text);
-Bot.runCommand('org_admin');
+Bot.run({
+   command: 'org_admin',
+   options: {
+      org_id: options.org_id
+   }
+});

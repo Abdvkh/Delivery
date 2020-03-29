@@ -17,7 +17,7 @@ let level = User.getGroup();
 let mLi = Libs.myLib;
 
 let orgs = Bot.getProperty('orgs');
-let org_i = mLi.pValid(message);
+let org_id = mLi.pValid(message);
 
 if(message == '123' || level == "Boss"){
    let keyss = mLi.mKeys(lang.super_admin.buttons) + ',\n onGitPush';
@@ -27,7 +27,7 @@ if(message == '123' || level == "Boss"){
 
    Bot.sendKeyboard(keyss, lang.super_admin.text);
    Bot.runCommand('admin');
-} else if (org_i >= 0 && mLi.isAdmin(user.telegramid)) {
+} else if (org_id >= 0 && mLi.isAdmin(user.telegramid)) {
    let keyso = mLi.mKeys(lang.admin.buttons);
 
    User.addToGroup(orgs.orgs_info[org_i]['name']);
@@ -35,7 +35,7 @@ if(message == '123' || level == "Boss"){
    Bot.sendKeyboard(keyso, lang.admin.text);
    Bot.run({
       command: 'org_admin',
-      options: {org_id: org_i}
+      options: {org_id: org_id}
    });
 } else {
    Bot.sendMessage('Password is wrong!');

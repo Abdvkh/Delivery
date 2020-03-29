@@ -38,4 +38,9 @@ if (exclamation > -1) {
    }
 }
 Bot.sendMessage(lang.admin.text);
-Bot.runCommand('org_admin');
+Bot.run({
+   comman: 'org_admin',
+   options: {
+      org_id: options.org_id
+   }
+});

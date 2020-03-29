@@ -56,6 +56,7 @@ for(let i=0; i < orgs.length; i++){
          Bot.run({
             command: 'orgs',
             options:{
+               type: type,
                type_orgs_names_keys: options.type_orgs_names_keys
             }
          });

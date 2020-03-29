@@ -38,12 +38,23 @@ switch (message) {
       let org_stat = org['orders_recieved'];
 
       Bot.sendMessage("Получено заказов: " + org_stat);
-      Bot.runCommand('org_admin');
+      Bot.sendMessage('wrong command');
+      Bot.run({
+         command: 'org_admin',
+         options: {
+            org_id: options.org_id
+         }
+      });
       break;
    case "Главное меню":
       Bot.runCommand('/menu');
       break;
    default:
       Bot.sendMessage('wrong command');
-      Bot.runCommand('org_admin');
+      Bot.run({
+         command: 'org_admin',
+         options: {
+            org_id: options.org_id
+         }
+      });
 }
